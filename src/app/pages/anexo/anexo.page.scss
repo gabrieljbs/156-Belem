@@ -1,0 +1,131 @@
+ion-menu {
+  ion-toolbar {
+    --background: #7301b1;
+    ion-icon {
+      width: 50px;
+      height: 50px;
+      rotate: 90deg;
+      color: #fff;
+    }
+  }
+  ion-content {
+    ion-item {
+      --background: #7301b1;
+      ion-icon {
+        width: 20px;
+        height: 20px;
+        color: #e3a44c;
+      }
+      ion-label {
+        color: #fff;
+      }
+    }
+    --background: #7301b1;
+  }
+}
+
+ion-content {
+  .back {
+    width: 100vw;
+    height: 100vh;
+    background-color: #7301b1;
+
+    ion-header {
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      ion-icon {
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        padding: 10px 20px;
+      }
+    }
+
+    .text {
+      margin-top: 50px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      width: 80vw;
+      margin: auto;
+      margin-top: 1rem;
+
+      ion-label {
+        text-align: center;
+        color: #e3a44c;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+      ion-icon {
+        width: 50px;
+        height: 50px;
+        color: #e3a44c;
+      }
+    }
+
+    h1 {
+      margin-top: 2rem;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      text-align: center;
+    }
+    ion-item {
+
+      ion-label {
+        width: 80vw;
+        height: 70px;
+        text-align: center;
+        p {
+          color: #000;
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: bold;
+        }
+      }
+      margin: auto;
+      width: 80vw;
+      height: 70px;
+    }
+
+    ion-button {
+      --background: #e3a44c;
+      width: 100vw;
+      height: 55px;
+      margin: auto;
+      color: #fff;
+      size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      bottom: 0px;
+      position: absolute;
+    }
+
+    ion-textarea{
+      margin: auto;
+      background: #fff;
+      margin-top: 1rem;
+      width: 80vw;
+      height: 20vh;
+      size: 16px;
+    }
+
+    ion-toggle{
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      margin-left: 10vw;
+      margin-top: 1rem;
+      size: 16px;
+    }
+  }
+}

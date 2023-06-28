@@ -1,0 +1,119 @@
+ion-menu {
+  ion-toolbar {
+    --background: #7301b1;
+    ion-icon {
+      width: 50px;
+      height: 50px;
+      rotate: 90deg;
+      color: #fff;
+    }
+  }
+  ion-content {
+    ion-item {
+      --background: #7301b1;
+      ion-icon {
+        width: 20px;
+        height: 20px;
+        color: #e3a44c;
+      }
+      ion-label {
+        color: #fff;
+      }
+    }
+    --background: #7301b1;
+  }
+}
+
+ion-content {
+  .back {
+    width: 100vw;
+
+    background-color: #7301b1;
+
+    ion-header {
+      display: flex;
+      justify-content: space-between;
+      ion-menu-button {
+        width: 50px;
+        height: 50px;
+        color: #fff;
+
+      }
+      ion-icon {
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        padding: 10px 20px;
+      }
+    }
+    ion-searchbar {
+      margin: auto;
+      margin-top: 3rem;
+      width: 85vw;
+      --border-radius: 10px;
+    }
+    .sc-ion-searchbar-md-h {
+      --icon-color: #e3a44c;
+    }
+
+    ion-item {
+      --background: #7301b1;
+      --border-color: #fff;
+      width: 85vw;
+      margin: auto;
+      margin-top: 1rem;
+      ion-label {
+        color: #fff;
+        size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+    }
+
+    swiper-container {
+      margin-top: 2rem;
+      margin-left: 3rem;
+
+      swiper-slide {
+        padding-right: 20px;
+
+        img {
+          border-radius: 10px;
+          width: 70vw;
+          height: 15vh;
+        }
+      }
+    }
+
+    ion-button {
+      width: 120px;
+      height: 120px;
+      --background: #fff;
+      --border-radius: 10px;
+
+      ion-icon {
+        width: 50px;
+        height: 50px;
+        color: #e3a44c;
+      }
+      ion-label {
+        color: #7301b1;
+        size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        padding: auto;
+        text-transform: none;
+      }
+    }
+
+    ion-list {
+      background: #7301b1;
+      margin: 30px;
+      padding: 10px;
+      width: 90vw;
+      height: 35vh;
+      padding: 20px 10vw;
+      overflow: scroll;
+    }
+  }
+}
