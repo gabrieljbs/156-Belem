@@ -11,7 +11,7 @@ export class LocationPage implements OnInit {
   ngOnInit() {}
 
   ngAfterViewInit(): void {
-    const map = new Map('map').setView([51.505, -0.09], 13);
+    const map = new Map('map').setView([-1.45502, -48.5024], 13);
     tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution:

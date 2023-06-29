@@ -26,6 +26,7 @@ ion-menu {
 
 ion-content {
   .back {
+    overflow: hidden;
     width: 100vw;
 
     background-color: #7301b1;
@@ -90,6 +91,7 @@ ion-content {
       height: 120px;
       --background: #fff;
       --border-radius: 10px;
+      margin: 10px;
 
       ion-icon {
         width: 50px;
@@ -111,7 +113,7 @@ ion-content {
       margin: 30px;
       padding: 10px;
       width: 90vw;
-      height: 35vh;
+      height: 40vh;
       padding: 20px 10vw;
       overflow: scroll;
     }
