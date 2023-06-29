@@ -1,0 +1,80 @@
+@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+#map {
+  height: 73vh;
+  width: 100vw;
+}
+ion-menu {
+  ion-toolbar {
+    --background: #7301b1;
+    ion-icon {
+      width: 50px;
+      height: 50px;
+      rotate: 90deg;
+      color: #fff;
+    }
+  }
+  ion-content {
+    ion-item {
+      --background: #7301b1;
+      ion-icon {
+        width: 20px;
+        height: 20px;
+        color: #e3a44c;
+      }
+      ion-label {
+        color: #fff;
+      }
+    }
+    --background: #7301b1;
+  }
+}
+
+ion-content {
+  .back {
+    width: 100vw;
+    height: 100vh;
+    background-color: #7301b1;
+
+    ion-header {
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      ion-icon {
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        padding: 10px 20px;
+      }
+    }
+    ion-searchbar {
+      margin: auto;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      width: 85vw;
+      --border-radius: 10px;
+    }
+    .sc-ion-searchbar-md-h {
+      --icon-color: #7301b1;
+    }
+
+    ion-button {
+      --background: #e3a44c;
+      width: 100vw;
+      height: 55px;
+      margin: auto;
+      color: #fff;
+      size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      bottom: 0px;
+      position: absolute;
+    }
+  }
+}

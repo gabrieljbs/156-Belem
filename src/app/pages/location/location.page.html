@@ -1,0 +1,15 @@
+<ion-content [fullscreen]="true">
+  <div class="back">
+    <ion-header>
+      <ion-icon name="chevron-back-outline" routerLink="/home"></ion-icon>
+      <h1>Localização</h1>
+      <ion-icon name="home" routerLink="/home"></ion-icon>
+    </ion-header>
+
+    <ion-searchbar placeholder="Buscar Localização"></ion-searchbar>
+    <div id="map"></div>
+    <ion-button expand="full" routerLink="/anexo"
+      >Proseguir<ion-icon name="chevron-forward"></ion-icon
+    ></ion-button>
+  </div>
+</ion-content>

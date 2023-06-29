@@ -1,0 +1,15 @@
+<ion-content [fullscreen]="true">
+  <div class="back">
+    <img src="./assets/icon/logo-belem.png" alt="Logo">
+
+    <div class="form">
+      <h1>Cadastro</h1>
+      <ion-input  label="Digite seu Nome Completo" label-placement="floating" fill="outline" placeholder="E-mail@exempler.com" type="nome"></ion-input>
+      <ion-input [(ngModel)]="user.email" label="Digite seu E-mail" label-placement="floating" fill="outline" placeholder="E-mail@exempler.com" type="E-mail"></ion-input>
+      <ion-input [(ngModel)]="user.password" label="Digite sua Senha" label-placement="floating" fill="outline" placeholder="******" type="password"></ion-input>
+      <ion-input label="Digite Confirmação Senha" label-placement="floating" fill="outline" placeholder="******" type="password"></ion-input>
+      <ion-button expand="block" (click)="userRegister(user)">Cadastar-se</ion-button>
+      <ion-button expand="block" routerLink="/login">Entrar</ion-button>
+    </div>
+  </div>
+</ion-content>
