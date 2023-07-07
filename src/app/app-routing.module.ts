@@ -30,7 +30,15 @@ const routes: Routes = [
     path: 'anexo',
     loadChildren: () => import('./pages/anexo/anexo.module').then( m => m.AnexoPageModule),
     canActivate: [AuthGuard]
+  },  {
+    path: 'solicitation',
+    loadChildren: () => import('./pages/solicitation/solicitation.module').then( m => m.SolicitationPageModule)
   },
+  {
+    path: 'places',
+    loadChildren: () => import('./pages/places/places.module').then( m => m.PlacesPageModule)
+  },
+
 ];
 
 @NgModule({

@@ -23,6 +23,11 @@ ion-content {
       border-radius: 10px;
       margin: auto;
       margin-top: 4rem;
+      @media screen and (min-width: 1024px) {
+        width: 40vw;
+        height: 60vh;
+
+       }
 
 
 

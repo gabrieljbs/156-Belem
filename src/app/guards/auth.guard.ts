@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return new Promise(async (resolve, reject) => {
       const auth = getAuth();
-     if(!auth.currentUser) {
+     if(auth.currentUser) {
       resolve(false);
       await this.router.navigate(['/login']);
       return (await presentToast('Usuario não logado', 3000, 'bottom', 'danger')).present();

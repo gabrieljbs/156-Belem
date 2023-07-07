@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Map, tileLayer } from 'leaflet';
+
 @Component({
   selector: 'app-anexo',
   templateUrl: './anexo.page.html',
@@ -7,7 +7,10 @@ import { Map, tileLayer } from 'leaflet';
 })
 export class AnexoPage implements OnInit {
 
-  constructor() { }
+
+  constructor(
+
+    ) { }
 
   ngOnInit() {
   }
