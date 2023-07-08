@@ -19,18 +19,19 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'location',
     loadChildren: () => import('./pages/location/location.module').then( m => m.LocationPageModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'anexo',
-    loadChildren: () => import('./pages/anexo/anexo.module').then( m => m.AnexoPageModule),
-    canActivate: [AuthGuard]
-  },  {
+    loadChildren: () => import('./pages/ticket/ticket.module').then( m => m.TicketPageModule),
+    // canActivate: [AuthGuard]
+  },
+  {
     path: 'solicitation',
     loadChildren: () => import('./pages/solicitation/solicitation.module').then( m => m.SolicitationPageModule)
   },
@@ -38,6 +39,15 @@ const routes: Routes = [
     path: 'places',
     loadChildren: () => import('./pages/places/places.module').then( m => m.PlacesPageModule)
   },
+  {
+    path: 'ticket',
+    loadChildren: () => import('./pages/ticket/ticket.module').then( m => m.TicketPageModule)
+  },
+  {
+    path: 'pages',
+    loadChildren: () => import('./pages/pages.module').then( m => m.PagesPageModule)
+  },
+
 
 ];
 

@@ -8,20 +8,25 @@ import { environment } from 'src/environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { getStorage, provideStorage  } from "@angular/fire/storage";
-import { StorageComponent } from './components/storage/storage.component';
-import { HeaderComponent } from './template/header/header.component';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { TicketPageModule } from './pages/ticket/ticket.module';
 
 @NgModule({
-  declarations: [AppComponent, StorageComponent, HeaderComponent],
-  imports: [BrowserModule,
-     IonicModule.forRoot(),
-     provideFirebaseApp(()=>initializeApp(environment.firebase)),
-     provideFirestore(()=>getFirestore()),
-     provideAuth(() => getAuth()),
-     provideStorage(()=>getStorage()),
-      AppRoutingModule, ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  bootstrap: [AppComponent,],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
+    AppRoutingModule,
+  ],
+  exports:[],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    TicketPageModule,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

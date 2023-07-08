@@ -1,0 +1,58 @@
+<app-header [headerText]="'Ticket'"></app-header>
+<ion-content [fullscreen]="true">
+    <div class="text">
+      <ion-item>
+        <ion-label>
+          <p>Adicione até 04 documentos, sendo no</p>
+          <p>máximo 01 vídeo até 5 segundos</p>
+        </ion-label>
+      </ion-item>
+    </div>
+
+    <div class="icons">
+      <ion-label>
+        <ion-icon name="camera"></ion-icon><br />
+        Foto
+      </ion-label>
+      <ion-label>
+        <ion-icon name="videocam"></ion-icon><br />
+        Video
+      </ion-label>
+      <ion-label>
+        <ion-icon name="folder"></ion-icon><br />
+        Arquivos
+      </ion-label>
+      <input id="fileUpload" type="file" #upload>
+
+
+    </div>
+
+    <div class="text">
+      <ion-item>
+        <ion-label>
+          <p>Descreva as infomações complementares</p>
+          <p>a sua solicitação:</p>
+        </ion-label>
+      </ion-item>
+    </div>
+
+    <ion-textarea
+      label="Descrição:"
+      labelPlacement="floating"
+      fill="outline"
+      placeholder="Enter text"
+    ></ion-textarea>
+
+    <div class="text">
+      <ion-item>
+        <ion-label>
+          <p>Rod. dos Trabalhadores, 1648, Val de cans.</p>
+        </ion-label>
+      </ion-item>
+    </div>
+    <ion-toggle [checked]="true" color="warning">Manter Sigilo?</ion-toggle
+    ><br /><br />
+    <ion-button (click)="uploadFile(upload)" expand="full" routerLink="/anexo"
+      >Enviar<ion-icon name="chevron-forward"></ion-icon
+    ></ion-button>
+</ion-content>

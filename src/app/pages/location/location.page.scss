@@ -4,10 +4,9 @@
   width: 100vw;
 }
 ion-content {
-  .back {
     width: 100vw;
     height: 100vh;
-    background-color: #7301b1;
+    --background: #7301b1;
 
     ion-header {
       display: flex;
@@ -50,5 +49,4 @@ ion-content {
       bottom: 0px;
       position: absolute;
     }
-  }
 }
