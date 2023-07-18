@@ -1,16 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { Map, marker, tileLayer } from 'leaflet';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Map, latLng, marker, tileLayer } from 'leaflet';
+
 @Component({
   selector: 'app-location',
   templateUrl: './location.page.html',
   styleUrls: ['./location.page.scss'],
 })
 export class LocationPage implements OnInit {
-  constructor() {}
+  private latitude: any;
+  private longitude: any;
+  constructor(
+    private router: Router
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   ngAfterViewInit(): void {
+
     const map = new Map('map').setView([-1.45502, -48.5024], 13);
     tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -18,21 +27,37 @@ export class LocationPage implements OnInit {
         '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
 
-    map.locate({setView:true , maxZoom:16})
+    map.locate({ setView: true, maxZoom: 16 });
 
-    function onLocationFound(e:any) {
+    const onLocationFound = (e: any) => {
       const radius = e.accuracy;
+       this.latitude = e.latlng.lat;
+       this.longitude = e.latlng.lng;
 
-      marker(e.latlng).addTo(map)
-          .bindPopup("Voçê a " + radius + " metros aproximadamente").openPopup();
+
+
+      console.log(this.latitude,this.longitude)
+
+      marker(e.latlng)
+        .addTo(map)
+        .bindPopup("Você está a " + radius + " metros aproximadamente")
+        .openPopup();
+    }
+
+    map.on('locationfound', onLocationFound);
   }
 
-  map.on('locationfound', onLocationFound);
+  nextPage(){
+    try{
 
+      this.router.navigate(['/ticket'], {
+        queryParams:{ latitude: this.latitude, longitude: this.longitude }});
+
+    }
+    catch(err){
+      console.log('Erro',err);
+    }
   }
 
 
 }
-
-
-

@@ -20,6 +20,8 @@ import { TicketPageModule } from './pages/ticket/ticket.module';
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
     AppRoutingModule,
   ],
   exports:[],

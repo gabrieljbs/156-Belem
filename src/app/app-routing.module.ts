@@ -47,6 +47,11 @@ const routes: Routes = [
     path: 'pages',
     loadChildren: () => import('./pages/pages.module').then( m => m.PagesPageModule)
   },
+  {
+    path: 'tourism',
+    loadChildren: () => import('./pages/tourism/tourism.module').then( m => m.TourismPageModule)
+  },
+
 
 
 ];

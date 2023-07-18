@@ -1,6 +1,5 @@
 <app-header [headerText]="'Home'"></app-header>
 <ion-content [fullscreen]="true">
-  <div class="back">
 
     <ion-searchbar placeholder="Buscar assunto"></ion-searchbar>
 
@@ -8,20 +7,35 @@
       <ion-label> Minhas solicitações </ion-label>
     </ion-item>
 
-    <swiper-container :slides-per-view="1.25" :loop="true">
-      <swiper-slide><img src="./assets/slide.png" alt="" /></swiper-slide>
-      <swiper-slide><img src="./assets/slide.png" alt="" /></swiper-slide>
-      <swiper-slide><img src="./assets/slide.png" alt="" /></swiper-slide>
+    <swiper-container  :slides-per-view="1.25" >
+      <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+      <swiper-slide *ngFor="let item of interfaceS" routerLink="/solicitation">
+        <ion-card >
+          <ion-card-header>
+            <ion-item>
+              <ion-card-title>{{item.titulo}}
+              </ion-card-title>
+              <ion-icon slot="end" size="large" name="warning"></ion-icon>
+            </ion-item>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Status: {{item.status}}<p>
+            <p>Aberto: {{item.abertura}}</p>
+            <p>Fechado: {{item.fechado}}</p>
+          </ion-card-content>
+        </ion-card>
+      </swiper-slide>
     </swiper-container>
 
     <ion-item>
       <ion-label>Pontos turisticos </ion-label>
     </ion-item>
 
-    <swiper-container :slides-per-view="1.25" :loop="true">
-      <swiper-slide><img src="./assets/doca1.jpg" alt="" /></swiper-slide>
-      <swiper-slide><img src="./assets/theatro.jpg" alt="" /></swiper-slide>
-      <swiper-slide><img src="./assets/ver-o-peso.jpg" alt="" /></swiper-slide>
+    <swiper-container :slides-per-view="1.25" >
+      <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+      <swiper-slide *ngFor="let item of interfaceTurismo" routerLink="/tourism">
+        <img src={{item}} alt="Foto"/>
+      </swiper-slide>
     </swiper-container>
 
     <ion-item>
@@ -29,14 +43,13 @@
     </ion-item>
 
     <ion-list>
-      <ion-button *ngFor="let item of [1, 2, 3, 4,5,6,7,8,9,10,11,12]">
+      <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+      <ion-button *ngFor="let item of interfaceCard">
         <ion-label>
-          <ion-icon slot="icon-only" name="bulb"></ion-icon>
-          <br />Luz queimada
+          <ion-icon slot="icon-only" name={{item.icon}}></ion-icon>
+          <p> {{item.name}} </p>
         </ion-label>
       </ion-button>
     </ion-list>
 
-
-  </div>
 </ion-content>
