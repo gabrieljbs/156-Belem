@@ -10,9 +10,10 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { TicketPageModule } from './pages/ticket/ticket.module';
-
+import { SolicitationDetailsComponent } from './components/modals/solicitation-details/solicitation-details.component'
+import { InfoTourismComponent } from './components/modals/info-tourism/info-tourism.component'
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SolicitationDetailsComponent, InfoTourismComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

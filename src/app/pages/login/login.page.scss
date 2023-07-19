@@ -14,7 +14,7 @@ ion-content {
       margin-bottom: 1rem;
     }
     .form{
-      overflow: scroll;
+      overflow: hidden;
       display: block;
       justify-content: center;
       width: 80vw;
@@ -23,6 +23,11 @@ ion-content {
       border-radius: 10px;
       margin: auto;
       margin-top: 4rem;
+      @media screen and (min-width: 1024px) {
+        width: 30vw;
+        height: 70vh;
+
+       }
 
       h1{
         color: #7301b1;
@@ -34,11 +39,13 @@ ion-content {
       }
 
       ion-input{
+        color: #7301b1;
         width: 30vh;
         margin: auto;
         margin-top: 1rem;
         margin-bottom: 2rem;
-
+        --highlight-color-valid:#7301b1;
+        --highlight-color: #7301b1;
       }
 
       ion-button{

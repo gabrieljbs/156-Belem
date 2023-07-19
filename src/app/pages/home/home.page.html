@@ -1,55 +1,56 @@
 <app-header [headerText]="'Home'"></app-header>
 <ion-content [fullscreen]="true">
+  <ion-searchbar placeholder="Buscar assunto"></ion-searchbar>
 
-    <ion-searchbar placeholder="Buscar assunto"></ion-searchbar>
+  <ion-item>
+    <ion-label> Minhas solicitações </ion-label>
+  </ion-item>
 
-    <ion-item>
-      <ion-label> Minhas solicitações </ion-label>
-    </ion-item>
+  <swiper-container :slides-per-view="1.25">
+    <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+    <swiper-slide *ngFor="let item of interfaceS">
+      <ion-card>
+        <ion-card-header>
+          <ion-item>
+            <ion-card-title>{{item.titulo}} </ion-card-title>
+            <ion-icon slot="end" size="large" name="warning"></ion-icon>
+          </ion-item>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Status: {{item.status}}</p>
+          <p></p>
+          <p>Aberto: {{item.abertura}}</p>
+          <p>Fechado: {{item.fechado}}</p>
+        </ion-card-content>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
 
-    <swiper-container  :slides-per-view="1.25" >
-      <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
-      <swiper-slide *ngFor="let item of interfaceS" routerLink="/solicitation">
-        <ion-card >
-          <ion-card-header>
-            <ion-item>
-              <ion-card-title>{{item.titulo}}
-              </ion-card-title>
-              <ion-icon slot="end" size="large" name="warning"></ion-icon>
-            </ion-item>
-          </ion-card-header>
-          <ion-card-content>
-            <p>Status: {{item.status}}<p>
-            <p>Aberto: {{item.abertura}}</p>
-            <p>Fechado: {{item.fechado}}</p>
-          </ion-card-content>
-        </ion-card>
-      </swiper-slide>
-    </swiper-container>
+  <ion-item>
+    <ion-label>Pontos turisticos </ion-label>
+  </ion-item>
 
-    <ion-item>
-      <ion-label>Pontos turisticos </ion-label>
-    </ion-item>
+  <swiper-container :slides-per-view="1.25">
+    <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+    <swiper-slide *ngFor="let item of interfaceTurismo">
+      <img src="{{item}}" alt="Foto" />
+    </swiper-slide>
+  </swiper-container>
 
-    <swiper-container :slides-per-view="1.25" >
-      <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
-      <swiper-slide *ngFor="let item of interfaceTurismo" routerLink="/tourism">
-        <img src={{item}} alt="Foto"/>
-      </swiper-slide>
-    </swiper-container>
+  <ion-item>
+    <ion-label>Nova solicitação </ion-label>
+  </ion-item>
 
-    <ion-item>
-      <ion-label>Nova solicitação </ion-label>
-    </ion-item>
-
-    <ion-list>
-      <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
-      <ion-button *ngFor="let item of interfaceCard">
-        <ion-label>
-          <ion-icon slot="icon-only" name={{item.icon}}></ion-icon>
-          <p> {{item.name}} </p>
-        </ion-label>
-      </ion-button>
-    </ion-list>
-
+  <ion-list>
+    <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+    <ion-button
+      *ngFor="let item of interfaceCard"
+      (click)="ticket(item.icon, item.name)"
+    >
+      <ion-label>
+        <ion-icon slot="icon-only" name="{{item.icon}}"></ion-icon>
+        <p>{{item.name}}</p>
+      </ion-label>
+    </ion-button>
+  </ion-list>
 </ion-content>

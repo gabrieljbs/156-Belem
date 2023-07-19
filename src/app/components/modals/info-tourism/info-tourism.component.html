@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+  <ion-title>Ponto turistico</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+  <ion-card >
+    <img alt="Silhouette of mountains"src="{{data.url}}" />
+    <ion-card-header>
+      <ion-card-title>{{data.titulo}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <P>{{data.info}}</P>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

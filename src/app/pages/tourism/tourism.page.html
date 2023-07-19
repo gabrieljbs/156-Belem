@@ -1,9 +1,15 @@
-<app-header [headerText]="'Tourism'"></app-header>
+<app-header [headerText]="'Turismo'"></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">tourism</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" >
+  <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+  <ion-card *ngFor="let card of interfaceCard"  (click)="openModal(card)">
+    <img alt="Silhouette of mountains"src="{{card.url}}" />
+    <ion-card-header>
+      <ion-card-title>{{card.titulo}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <P>{{card.intro}}</P>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

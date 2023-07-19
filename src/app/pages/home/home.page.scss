@@ -2,7 +2,6 @@
 ion-content {
     overflow: hidden;
     width: 100vw;
-
     --background: #7301b1;
 
     ion-header {
@@ -26,6 +25,8 @@ ion-content {
       margin-top: 3rem;
       width: 85vw;
       --border-radius: 10px;
+      --background: #fff;
+      color: black;
     }
     .sc-ion-searchbar-md-h {
       --icon-color: #e3a44c;
@@ -56,9 +57,12 @@ ion-content {
         margin: auto;
         width: 100px;
         height: 100px;
+        color: #fff;
+
        }
        ion-card{
         padding:  0px 15px 0px 5px;
+        --background: #fff;
          ion-card-header{
           display: inline;
           ion-item{
@@ -135,6 +139,7 @@ ion-content {
         margin: auto;
         width: 100px;
         height: 100px;
+        color: #fff;
       }
 
       p{

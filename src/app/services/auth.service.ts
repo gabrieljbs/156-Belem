@@ -28,6 +28,7 @@ export class AuthService {
     );
     await setDoc(doc(this.userCollection, newUser.user.uid), {
       email: userData.email,
+      uid: newUser.user.uid
     });
     return newUser.user.uid;
   }
@@ -40,7 +41,8 @@ export class AuthService {
       userData.password
     );
     return docData(doc(this.userCollection, user.user.uid)).subscribe((res) => {
-      sessionStorage.setItem('userData', JSON.stringify(res));
+      console.log(res)
+      sessionStorage.setItem('userData', JSON.stringify({res}));
     });
   }
 

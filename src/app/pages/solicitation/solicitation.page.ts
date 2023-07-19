@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SolicitationService } from 'src/app/services/solicitation.service';
 import { getAuth } from '@angular/fire/auth';
+import { SolicitationDetailsComponent } from 'src/app/components/modals/solicitation-details/solicitation-details.component';
+import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-solicitation',
   templateUrl: './solicitation.page.html',
@@ -12,6 +14,7 @@ export class SolicitationPage implements OnInit {
   filter = 'Em andamento'
   constructor(
     private list: SolicitationService,
+    private modalCtrl: ModalController
 
   ) {}
 
@@ -20,5 +23,16 @@ export class SolicitationPage implements OnInit {
     w.forEach((doc) => {
       this.interfaceList.push(doc.data());
     });
+  }
+
+  async openModal(data:any) {
+    const modal = await this.modalCtrl.create({
+      component: SolicitationDetailsComponent,
+      componentProps: {
+        data
+      }
+    });
+    return await modal.present();
+
   }
 }

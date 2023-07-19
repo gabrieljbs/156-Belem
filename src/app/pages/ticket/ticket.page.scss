@@ -4,6 +4,7 @@ ion-content {
     --background: #7301b1;
     .text {
       margin-top: 50px;
+
     }
 
     .icons {
@@ -27,6 +28,7 @@ ion-content {
 
       input[type="file"] {
         display: none;
+
       }
 
     }
@@ -40,7 +42,7 @@ ion-content {
       text-align: center;
     }
     ion-item {
-
+      --background: #fff;
       ion-label {
         width: 80vw;
         height: 70px;
@@ -65,6 +67,7 @@ ion-content {
       font-size: 18px;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: fill;
+      color:#000;
 
       .textarea-bottom{
         background: #fff;
@@ -81,6 +84,13 @@ ion-content {
 
     }
 
+    .picture{
+      width: 80vw;
+      height: 10vh;
+      background: #ccc;
+      margin: auto;
+    }
+
 }
 ion-button {
   --background: #e3a44c;
@@ -91,5 +101,7 @@ ion-button {
   size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+  bottom: 0px;
+  position: absolute;
 
 }

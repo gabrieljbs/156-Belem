@@ -2,7 +2,11 @@ ion-header {
   display: flex;
   justify-content: space-between;
   background-color: #7301b1;
-
+  ion-menu-button{
+    font-size:50px;
+    width:70px;
+    height: 70px;
+  }
   h1 {
     color: #FFF;
     font-family: Arial, Helvetica, sans-serif;

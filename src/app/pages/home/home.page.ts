@@ -1,6 +1,7 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SolicitationService } from './../../services/solicitation.service';
 import { StorageService } from './../../services/storage.service'
+import { Router} from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -11,9 +12,11 @@ export class HomePage implements OnInit {
   public isLoading = false;
   public interfaceCard: any[] = [];
   public interfaceTurismo: any[] = [];
+
   constructor(
     private solicitation: SolicitationService,
-    private storage: StorageService
+    private storage: StorageService,
+    private router: Router
     ) {}
 
   async ngOnInit() {
@@ -35,9 +38,10 @@ export class HomePage implements OnInit {
 
 
     } catch (error) {}
+  }
 
-
-
+  ticket(icon:string, name:string){
+    this.router.navigate([`ticket`], {state:{icon:icon, name: name}});
   }
 }
 

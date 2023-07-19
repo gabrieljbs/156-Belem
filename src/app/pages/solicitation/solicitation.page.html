@@ -2,10 +2,10 @@
 <ion-content [fullscreen]="true">
   <ion-toolbar>
     <ion-segment value="Em andamento" [(ngModel)]="filter">
-      <ion-segment-button value="Em andamento" >
+      <ion-segment-button value="Em andamento">
         <ion-label>Em andamento</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="Fechado" >
+      <ion-segment-button value="Fechado">
         <ion-label>Fechados</ion-label>
       </ion-segment-button>
       <ion-segment-button value="Aberto">
@@ -13,19 +13,18 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-    <div *ngFor="let item of interfaceList">
-      <ion-list *ngIf="item.status === filter">
-        <ion-list-header>
-          <ion-label><h1>{{item.titulo}}</h1></ion-label>
-        </ion-list-header>
-        <ion-item>
-          <ion-label>
-            <p>Descrição: {{item.descricao}}</p>
-            <p>Abertura: {{item.abertura}}</p>
-            <p>Fechado:  {{item.fechado}}</p>
-            <p>Status:  {{item.status}}</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
+
+  <ion-list *ngFor="let item of interfaceList" style="background: #7301b1" (click)="openModal(item)">
+    <div class="card" *ngIf="item.status === filter">
+      <div class="title">
+        <h3>{{item.titulo}}</h3>
+        <ion-icon slot="icon-only" name={{item.icon}}></ion-icon>
+      </div>
+      <div class="description">
+        <label>Abertura: {{item.abertura}}</label>
+        <label>Fechado: {{item.fechado}}</label>
+        <label>Status: {{item.status}}</label>
+      </div>
     </div>
+  </ion-list>
 </ion-content>

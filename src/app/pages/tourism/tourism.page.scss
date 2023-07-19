@@ -1,0 +1,20 @@
+ion-content{
+  --background: #7301b1;
+  ion-spinner{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    color: #fff;
+
+   }
+  ion-card{
+    background: #fff;
+
+  }
+  ion-card-title{
+    color: #000;
+  }
+
+}

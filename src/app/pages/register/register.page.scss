@@ -24,8 +24,8 @@ ion-content {
       margin: auto;
       margin-top: 4rem;
       @media screen and (min-width: 1024px) {
-        width: 40vw;
-        height: 60vh;
+        width: 30vw;
+        height: 70vh;
 
        }
 
@@ -45,7 +45,9 @@ ion-content {
         margin: auto;
         margin-top: 1rem;
         margin-bottom: 1rem;
-
+        color: #7301b1;
+        --highlight-color-valid:#7301b1;
+        --highlight-color: #7301b1;
       }
 
       ion-button{

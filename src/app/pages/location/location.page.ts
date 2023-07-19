@@ -33,9 +33,6 @@ export class LocationPage implements OnInit {
       const radius = e.accuracy;
        this.latitude = e.latlng.lat;
        this.longitude = e.latlng.lng;
-
-
-
       console.log(this.latitude,this.longitude)
 
       marker(e.latlng)

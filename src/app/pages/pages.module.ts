@@ -6,9 +6,6 @@ import { PagesPageRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { HeaderComponent } from '../components/template/header/header.component';
 
-
-
-
 @NgModule({
   imports: [
     CommonModule,
