@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SolicitationService } from './../../services/solicitation.service';
 import { StorageService } from './../../services/storage.service'
 import { Router} from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { SolicitationDetailsComponent } from 'src/app/components/modals/solicitation-details/solicitation-details.component';
+import { InfoTourismComponent } from './../../components/modals/info-tourism/info-tourism.component'
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -16,7 +19,8 @@ export class HomePage implements OnInit {
   constructor(
     private solicitation: SolicitationService,
     private storage: StorageService,
-    private router: Router
+    private router: Router,
+    private modalCtrl: ModalController
     ) {}
 
   async ngOnInit() {
@@ -27,21 +31,42 @@ export class HomePage implements OnInit {
         this.interfaceS.push(doc.data());
       });
 
+      const info = await this.solicitation.info()
+      info.forEach((doc) => {
+          this.interfaceTurismo.push(doc.data())
+          console.log(this.interfaceCard)
+      });
+
       const buttom = await this.solicitation.card();
       buttom.forEach((doc)=>{this.interfaceCard.push(doc.data())})
 
-      this.storage.getPontosTuristicos().subscribe((pontos)=>{
-        this.interfaceTurismo = pontos;
-      })
-
       this.isLoading = false
-
-
     } catch (error) {}
   }
 
   ticket(icon:string, name:string){
-    this.router.navigate([`ticket`], {state:{icon:icon, name: name}});
+    this.router.navigate([`location`], {state:{icon:icon, name: name}});
+  }
+
+  async openModalSolicitation(data:any) {
+    const modal = await this.modalCtrl.create({
+      component: SolicitationDetailsComponent,
+      componentProps: {
+        data
+      }
+    });
+    return await modal.present();
+
+  }
+  async openModalTourism(data:any) {
+    const modal = await this.modalCtrl.create({
+      component: InfoTourismComponent,
+      componentProps: {
+        data
+      }
+    });
+    return await modal.present();
+
   }
 }
 

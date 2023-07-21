@@ -38,7 +38,7 @@ async card(){
 
 }
 
-async create(descricao:string, location:any, icon: string, name: string){
+async create(descricao:string, location:any[] = [], icon: string, name: string){
   console.log('chamado');
   const auth = getAuth();
   const user = auth.currentUser;

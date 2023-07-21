@@ -13,13 +13,13 @@ export class SolicitationPage implements OnInit {
 
   filter = 'Em andamento'
   constructor(
-    private list: SolicitationService,
+    private solicitation: SolicitationService,
     private modalCtrl: ModalController
 
   ) {}
 
   async ngOnInit() {
-    const w = await this.list.read();
+    const w = await this.solicitation.read();
     w.forEach((doc) => {
       this.interfaceList.push(doc.data());
     });

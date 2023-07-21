@@ -8,7 +8,7 @@
 
   <swiper-container :slides-per-view="1.25">
     <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
-    <swiper-slide *ngFor="let item of interfaceS">
+    <swiper-slide *ngFor="let item of interfaceS" (click)="openModalSolicitation(item)">
       <ion-card>
         <ion-card-header>
           <ion-item>
@@ -32,8 +32,8 @@
 
   <swiper-container :slides-per-view="1.25">
     <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
-    <swiper-slide *ngFor="let item of interfaceTurismo">
-      <img src="{{item}}" alt="Foto" />
+    <swiper-slide *ngFor="let item of interfaceTurismo" (click)="openModalTourism(item)">
+      <img src="{{item.url}}" alt="Foto" />
     </swiper-slide>
   </swiper-container>
 

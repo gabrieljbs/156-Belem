@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'tourism',
     loadChildren: () => import('./pages/tourism/tourism.module').then( m => m.TourismPageModule)
   },
+  {
+    path: 'new-solicitation',
+    loadChildren: () => import('./pages/new-solicitation/new-solicitation.module').then( m => m.NewSolicitationPageModule)
+  },
 
 
 

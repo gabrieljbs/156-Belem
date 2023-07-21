@@ -1,0 +1,17 @@
+<app-header [headerText]="'Nova solicitação'"></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar (ionInput)="handleInput($event)" placeholder="Buscar assunto"></ion-searchbar>
+  <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+
+  <div class="content">
+    <div class="list" *ngFor="let item of results">
+      <ion-button (click)="ticket(item.icon, item.name)">
+        <ion-label>
+          <ion-icon slot="icon-only" [name]="item.icon"></ion-icon>
+          <p>{{item.name}}</p>
+        </ion-label>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
