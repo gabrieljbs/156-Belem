@@ -1,35 +1,8 @@
-ion-menu {
-  ion-toolbar {
-    --background: #7301b1;
-    ion-icon {
-      width: 50px;
-      height: 50px;
-      rotate: 90deg;
-      color: #fff;
-    }
-  }
-  ion-content {
-    ion-item {
-      --background: #7301b1;
-      ion-icon {
-        width: 20px;
-        height: 20px;
-        color: #e3a44c;
-      }
-      ion-label {
-        color: #fff;
-      }
-    }
-    --background: #7301b1;
-  }
-}
 
 ion-content {
-  .back {
     overflow: hidden;
     width: 100vw;
-
-    background-color: #7301b1;
+    --background: #7301b1;
 
     ion-header {
       display: flex;
@@ -52,6 +25,8 @@ ion-content {
       margin-top: 3rem;
       width: 85vw;
       --border-radius: 10px;
+      --background: #fff;
+      color: black;
     }
     .sc-ion-searchbar-md-h {
       --icon-color: #e3a44c;
@@ -74,6 +49,45 @@ ion-content {
     swiper-container {
       margin-top: 2rem;
       margin-left: 3rem;
+      @media screen and (min-width: 1024px) {
+        margin-left: 5rem;
+
+       }
+       ion-spinner{
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        color: #fff;
+
+       }
+       ion-card{
+        padding:  0px 15px 0px 5px;
+        --background: #fff;
+         ion-card-header{
+          display: inline;
+          ion-item{
+            display: inline;
+            --background: #fff;
+            --border-color: #7301b1;
+            ion-icon{
+              color: #7301b1;
+            }
+
+          }
+           ion-card-title{
+            color: #7301b1;
+            font-weight: bold;
+           }
+         }
+
+         p{
+          color: #7301b1;
+          font-size: large;
+          font-weight: bold;
+          font-family: Arial, Helvetica, sans-serif;
+         }
+
+       }
 
       swiper-slide {
         padding-right: 20px;
@@ -82,6 +96,11 @@ ion-content {
           border-radius: 10px;
           width: 70vw;
           height: 15vh;
+          @media screen and (min-width: 1024px) {
+            width: 60vw;
+            height: 60vh;
+
+           }
         }
       }
     }
@@ -116,6 +135,18 @@ ion-content {
       height: 40vh;
       padding: 20px 10vw;
       overflow: scroll;
+      ion-spinner{
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        color: #fff;
+      }
+
+      p{
+        color: #7301b1;
+        size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
     }
-  }
+
 }

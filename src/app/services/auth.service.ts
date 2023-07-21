@@ -19,6 +19,7 @@ export class AuthService {
   private auth = getAuth();
   private userCollection = collection(this.firestore, 'User');
 
+  //Cadastro do usuario
   async register(userData: any) {
     const newUser = await createUserWithEmailAndPassword(
       this.auth,
@@ -27,10 +28,12 @@ export class AuthService {
     );
     await setDoc(doc(this.userCollection, newUser.user.uid), {
       email: userData.email,
+      uid: newUser.user.uid
     });
     return newUser.user.uid;
   }
 
+  //Login do usuario
   async login(userData: any) {
     const user = await signInWithEmailAndPassword(
       this.auth,
@@ -38,10 +41,12 @@ export class AuthService {
       userData.password
     );
     return docData(doc(this.userCollection, user.user.uid)).subscribe((res) => {
-      sessionStorage.setItem('userData', JSON.stringify(res));
+      console.log(res)
+      sessionStorage.setItem('userData', JSON.stringify({res}));
     });
   }
 
+  //Logout do usuario
   async logout() {
     return await this.auth.signOut().then(() => {
       sessionStorage.removeItem('userData');

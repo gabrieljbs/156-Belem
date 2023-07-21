@@ -1,0 +1,63 @@
+<app-header [headerText]="'Ticket'"></app-header>
+<ion-content [fullscreen]="true">
+  <div class="text">
+    <ion-item>
+      <ion-label>
+        <p>Adicione até 04 documentos, sendo no</p>
+        <p>máximo 01 vídeo até 5 segundos</p>
+      </ion-label>
+    </ion-item>
+  </div>
+
+  <div class="icons">
+    <ion-label (click)="takePicture()">
+      <ion-icon name="camera"></ion-icon><br />
+      Foto
+    </ion-label>
+    <ion-label (click)="takePicture()">
+      <ion-icon name="videocam"></ion-icon><br />
+      Video
+    </ion-label>
+
+    <label for="fileUpload">
+      <ion-label>
+        <ion-icon name="folder"></ion-icon><br />
+        Arquivos
+      </ion-label>
+    </label>
+    <input id="fileUpload" type="file" #upload />
+  </div>
+
+  <div class='picture' >
+    <ion-label  for="fileUpload">  </ion-label>
+  </div>
+
+  <div class="text">
+    <ion-item>
+      <ion-label>
+        <p>Descreva as infomações complementares</p>
+        <p>a sua solicitação:</p>
+      </ion-label>
+    </ion-item>
+  </div>
+
+  <ion-textarea
+    label="Descrição:"
+    fill="outline"
+    placeholder="Enter text"
+    label-placement=""
+    [counter]="true"
+    [autoGrow]="true"
+    maxlength="220"
+    [counterFormatter]="customCounterFormatter"
+    [(ngModel)]="description"
+  ></ion-textarea>
+
+  <ion-toggle [checked]="true" color="warning">Manter Sigilo?</ion-toggle>
+<br>
+
+
+</ion-content>
+<ion-button (click)="ticket(description, upload)" expand="full" routerLink="/anexo"
+  >Enviar<ion-icon name="chevron-forward"></ion-icon
+></ion-button>

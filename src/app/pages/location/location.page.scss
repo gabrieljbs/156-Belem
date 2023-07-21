@@ -1,39 +1,13 @@
 @import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+@import url("https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css");
 #map {
   height: 73vh;
   width: 100vw;
 }
-ion-menu {
-  ion-toolbar {
-    --background: #7301b1;
-    ion-icon {
-      width: 50px;
-      height: 50px;
-      rotate: 90deg;
-      color: #fff;
-    }
-  }
-  ion-content {
-    ion-item {
-      --background: #7301b1;
-      ion-icon {
-        width: 20px;
-        height: 20px;
-        color: #e3a44c;
-      }
-      ion-label {
-        color: #fff;
-      }
-    }
-    --background: #7301b1;
-  }
-}
-
 ion-content {
-  .back {
     width: 100vw;
     height: 100vh;
-    background-color: #7301b1;
+    --background: #7301b1;
 
     ion-header {
       display: flex;
@@ -59,6 +33,8 @@ ion-content {
       margin-bottom: 1rem;
       width: 85vw;
       --border-radius: 10px;
+      --background: #fff;
+      color: #000;
     }
     .sc-ion-searchbar-md-h {
       --icon-color: #7301b1;
@@ -76,5 +52,4 @@ ion-content {
       bottom: 0px;
       position: absolute;
     }
-  }
 }
