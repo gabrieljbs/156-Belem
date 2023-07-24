@@ -25,11 +25,16 @@
         Arquivos
       </ion-label>
     </label>
-    <input id="fileUpload" type="file" #upload />
+    <input id="fileUpload" type="file" #upload (change)="handleFileChange($event)" />
   </div>
 
-  <div class='picture' >
-    <ion-label  for="fileUpload">  </ion-label>
+  <div class="picture">
+    <ion-label *ngIf="imageSrc">
+      <img *ngIf="imageSrc.startsWith('data:image/')" [src]="imageSrc" alt="Preview da imagem" />
+      <video *ngIf="imageSrc.startsWith('data:video/')" controls>
+        <source [src]="imageSrc" type="video/mp4" />
+      </video>
+    </ion-label>
   </div>
 
   <div class="text">

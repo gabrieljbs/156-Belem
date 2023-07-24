@@ -33,7 +33,8 @@
   <swiper-container :slides-per-view="1.25">
     <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
     <swiper-slide *ngFor="let item of interfaceTurismo" (click)="openModalTourism(item)">
-      <img src="{{item.url}}" alt="Foto" />
+      <img src="{{item.url}}" alt="Foto"/>
+      <div class="image-title">{{item.titulo}}</div>
     </swiper-slide>
   </swiper-container>
 
@@ -41,16 +42,15 @@
     <ion-label>Nova solicitação </ion-label>
   </ion-item>
 
-  <ion-list>
+  <div class="solicitation">
     <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
-    <ion-button
-      *ngFor="let item of interfaceCard"
-      (click)="ticket(item.icon, item.name)"
-    >
-      <ion-label>
-        <ion-icon slot="icon-only" name="{{item.icon}}"></ion-icon>
-        <p>{{item.name}}</p>
-      </ion-label>
-    </ion-button>
-  </ion-list>
+    <div class="list">
+      <ion-button *ngFor="let item of interfaceCard" (click)="ticket(item.icon, item.name)">
+        <ion-label>
+          <ion-icon slot="icon-only" [name]="item.icon"></ion-icon>
+          <p>{{item.name}}</p>
+        </ion-label>
+      </ion-button>
+    </div>
+  </div>
 </ion-content>

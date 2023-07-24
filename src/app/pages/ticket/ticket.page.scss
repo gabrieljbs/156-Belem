@@ -85,8 +85,9 @@ ion-content {
     }
 
     .picture{
-      width: 80vw;
-      height: 10vh;
+      overflow:auto;
+      width: 90vw;
+      height: 25vh;
       background: #ccc;
       margin: auto;
     }
