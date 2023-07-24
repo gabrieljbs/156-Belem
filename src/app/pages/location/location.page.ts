@@ -9,7 +9,6 @@ import { Map, latLng, marker, tileLayer } from 'leaflet';
 })
 export class LocationPage implements OnInit {
   public location: any  = {lat:'', lon:''}
-
   public icon:any;
   public name: any
   private state: any;
@@ -53,7 +52,7 @@ export class LocationPage implements OnInit {
   }
 
   ticket(){
-    this.router.navigate([`ticket`], {state:{icon:this.state.icon, name: this.state.name, lat:this.location.lat, lon: this.location.lon}});
+    this.router.navigate([`ticket`], {state:{icon:this.state.icon, name: this.state.name, lat:this.location.lat, lon:this.location.lon}});
   }
 
 

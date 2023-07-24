@@ -18,6 +18,7 @@ export class TicketPage implements OnInit {
   public name: any;
   public icon: any;
 
+
   constructor(
     private loadingCtrl: LoadingController,
     private router: Router,
@@ -50,13 +51,16 @@ export class TicketPage implements OnInit {
   }
 
   async ticket(descricao: string, input: any) {
+    this.showLoading();
     await this.storageService.setFiles(input);
     await this.solicitation.create(
       descricao,
-      this.state.location,
+      this.state.lat,
+      this.state.lon,
       this.state.icon,
       this.state.name
     );
+    this.loading.dismiss();
     this.router.navigate(['/home']);
   }
 

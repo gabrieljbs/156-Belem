@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { getDocs, query, setDoc, where } from '@angular/fire/firestore';
 import { Firestore, collection, doc } from '@angular/fire/firestore';
 import { getAuth } from '@angular/fire/auth';
-import { format } from 'date-fns'
+import { format, lastDayOfMonth } from 'date-fns'
 
 @Injectable({
   providedIn: 'root'
@@ -38,19 +38,19 @@ async card(){
 
 }
 
-async create(descricao:string, location:any[] = [], icon: string, name: string){
-  console.log('chamado');
+async create(descricao:string, latitude:any, longitude:any, icon: string, name: string){
+
   const auth = getAuth();
   const user = auth.currentUser;
   const uid = user?.uid
   const currentDate = format(new Date(), 'dd/MM/yyyy');
-
+  const local = { lat: latitude, lon: longitude };
   await setDoc(doc(this.solicitationCollection),{
     abertura:currentDate,
     descricao:descricao,
     fechado:'--/--/----',
     icon:icon,
-    local:location,
+    local:local,
     status:'Aberto',
     titulo:name,
     userId: uid,
