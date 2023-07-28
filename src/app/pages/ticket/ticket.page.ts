@@ -52,13 +52,18 @@ export class TicketPage implements OnInit {
 
   async ticket(descricao: string, input: any) {
     this.showLoading();
-    await this.storageService.setFiles(input);
+
+    const imageRef = await this.storageService.setFiles(input);
+
     await this.solicitation.create(
       descricao,
       this.state.lat,
       this.state.lon,
       this.state.icon,
-      this.state.name
+      this.state.name,
+      imageRef,
+      this.state.label
+
     );
     this.loading.dismiss();
     this.router.navigate(['/home']);
