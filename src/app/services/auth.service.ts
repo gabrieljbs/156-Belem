@@ -28,7 +28,8 @@ export class AuthService {
     );
     await setDoc(doc(this.userCollection, newUser.user.uid), {
       email: userData.email,
-      uid: newUser.user.uid
+      uid: newUser.user.uid,
+      nome: userData.nome,
     });
     return newUser.user.uid;
   }
@@ -40,8 +41,9 @@ export class AuthService {
       userData.email,
       userData.password
     );
+    sessionStorage.setItem('userData', JSON.stringify( user.user.uid ));
     return docData(doc(this.userCollection, user.user.uid)).subscribe((res) => {
-      sessionStorage.setItem('userData', JSON.stringify({res}));
+
     });
   }
 
@@ -50,5 +52,13 @@ export class AuthService {
     return await this.auth.signOut().then(() => {
       sessionStorage.removeItem('userData');
     });
+  }
+  //Pegar uid
+  getuid() {
+    const data = sessionStorage.getItem('userData');
+    if (data) {
+      const uid = JSON.parse(data);
+      return uid;
+    }
   }
 }
