@@ -29,7 +29,6 @@ export class TourismPage implements OnInit {
       const info = await this.solicitation.info()
       info.forEach((doc) => {
           this.interfaceCard.push(doc.data())
-          console.log(this.interfaceCard)
       });
 
       this.storage.getPontosTuristicos().subscribe((pontos)=>{

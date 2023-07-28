@@ -37,11 +37,9 @@ export class HomePage implements OnInit {
         subtitulo: 'Clique para ver todas',
         func: true,
       });
-      console.log(this.interfaceCard);
       const info = await this.solicitation.info();
       info.forEach((doc) => {
         this.interfaceTurismo.push(doc.data());
-        console.log(this.interfaceCard);
       });
       this.interfaceTurismo.push({
         text: 'Pontos turisticos',
@@ -90,7 +88,6 @@ export class HomePage implements OnInit {
   }
 
   async search(query: any) {
-    console.log(query.detail.value);
     const result = this.interfaceCard.includes(
       (res: any) => res.name === query.detail.value
     );
