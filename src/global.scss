@@ -16,7 +16,7 @@
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
-@import '@ionic/angular/css/display.css';
+@import "@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "@ionic/angular/css/padding.css";
@@ -25,9 +25,9 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 @import "~leaflet/dist/leaflet.css";
-@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
-
-app-root{
+@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+@import "https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css";
+app-root {
   width: 100vw;
   height: 100vh;
 }
@@ -39,4 +39,23 @@ ion-toast.danger {
 ion-toast.success {
   --background: #48ff00;
   --color: #fff;
+}
+
+form {
+  align-items: center;
+  width: 80vw;
+  height: 5vh !important;
+  padding: 0 !important;
+  .glass{
+    font-size: 15px !important;
+    background: white;
+    color: black;
+  }
+  .reset {
+    height: 0;
+    width: 0;
+  }
+  .results {
+    font-size: 15px !important;
+  }
 }

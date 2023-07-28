@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Map, latLng, marker, tileLayer } from 'leaflet';
+import { ToastController } from '@ionic/angular';
+import * as L from 'leaflet';
+import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 
 @Component({
   selector: 'app-location',
@@ -8,52 +10,101 @@ import { Map, latLng, marker, tileLayer } from 'leaflet';
   styleUrls: ['./location.page.scss'],
 })
 export class LocationPage implements OnInit {
-  public location: any  = {lat:'', lon:''}
-  public icon:any;
-  public name: any
+  public location: any = { lat: '', lon: '' };
+  public icon: any;
+  public name: any;
   private state: any;
+  private result: any = {
+    x: '', //longitude
+    y: '', //latitude
+    label: '',
+    bounds: [
+      ['', ''],
+      ['', ''],
+    ],
+    raw: '',
+  };
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private toastController: ToastController
   ) {}
 
   ngOnInit() {
-
     this.state = this.router.getCurrentNavigation()?.extras?.state;
-    this.icon = this.state.icon
-    this.name = this.state.name
-    console.log(this.state)
+    this.icon = this.state.icon;
+    this.name = this.state.name;
   }
 
   ngAfterViewInit(): void {
+    const map =  L.map('map').setView([-1.45502, -48.5024], 16);
+    L.tileLayer(
+      'https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png',
+      {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }
+    ).addTo(map);
 
-    const map = new Map('map').setView([-1.45502, -48.5024], 13);
-    tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution:
-        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(map);
+    const searchControl: any = GeoSearchControl(
+      {
+        provider: new OpenStreetMapProvider(),
+        style: 'bar',
+        searchLabel: 'Insira o endereço...',
+        notFoundMessage: 'Desculpa, endereço não encontrado.',
+      },
+      console.log(map.getCenter())
+    );
 
-    map.locate({ setView: true, maxZoom: 16 });
+    map.addControl(searchControl).getCenter();
+
+    //map.locate();
 
     const onLocationFound = (e: any) => {
       const radius = e.accuracy;
-       this.location.lat = e.latlng.lat;
-       this.location.lon = e.latlng.lng;
-      console.log(this.location.lat,this.location.lon)
-
-      marker(e.latlng)
+      this.location.lat = e.latlng.lat;
+      this.location.lon = e.latlng.lng;
+      L.marker(e.latlng)
         .addTo(map)
-        .bindPopup("Você está a " + radius + " metros aproximadamente")
+        .bindPopup('Você está a ' + radius + ' metros aproximadamente')
         .openPopup();
-    }
+    };
 
     map.on('locationfound', onLocationFound);
+
+    const searchEventHandler = (result: any) => {
+      this.result = result.location;
+    };
+    // Funcionando
+    map.on('geosearch/showlocation', searchEventHandler);
   }
 
-  ticket(){
-    this.router.navigate([`ticket`], {state:{icon:this.state.icon, name: this.state.name, lat:this.location.lat, lon:this.location.lon}});
+  ticket() {
+    if (!this.result) {
+      this.router.navigate([`ticket`], {
+        state: {
+          icon: this.state.icon,
+          name: this.state.name,
+          lat: this.result.y,
+          lon: this.result.x,
+          label: this.result.label,
+        },
+      });
+    } else {
+      this.presentToast();
+    }
   }
 
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Informe a localização',
+      duration: 3000,
+      position: 'bottom',
+      color: 'danger',
+    });
 
+    await toast.present();
+  }
 }

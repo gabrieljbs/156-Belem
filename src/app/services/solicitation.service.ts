@@ -13,7 +13,7 @@ export class SolicitationService {
     private firestore: Firestore
   ) { }
  private solocitationInfoTourism = collection(this.firestore,'turismo_info')
- private solicitationCollection = collection(this.firestore,'Solicitation');
+ private solicitationCollection = collection(this.firestore,'solicitation');
  private solicitationCard = collection(this.firestore,'card');
 
 
@@ -38,13 +38,14 @@ async card(){
 
 }
 
-async create(descricao:string, latitude:any, longitude:any, icon: string, name: string){
+async create(descricao:string, latitude:any, longitude:any, icon: string, name: string, url:any, label:any ){
 
   const auth = getAuth();
   const user = auth.currentUser;
   const uid = user?.uid
   const currentDate = format(new Date(), 'dd/MM/yyyy');
-  const local = { lat: latitude, lon: longitude };
+  const local = { lat: latitude, lon: longitude, label:label };
+
   await setDoc(doc(this.solicitationCollection),{
     abertura:currentDate,
     descricao:descricao,
@@ -54,7 +55,7 @@ async create(descricao:string, latitude:any, longitude:any, icon: string, name: 
     status:'Aberto',
     titulo:name,
     userId: uid,
-
+    url:url,
   });
 
 }
