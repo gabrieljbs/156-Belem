@@ -1,15 +1,15 @@
 <app-header [headerText]="'List'"></app-header>
 <ion-content [fullscreen]="true">
   <ion-toolbar>
-    <ion-segment value="Em andamento" [(ngModel)]="filter">
+    <ion-segment [scrollable]="true" value="Em andamento" [(ngModel)]="filter">
       <ion-segment-button value="Em andamento">
-        <ion-label>Em andamento</ion-label>
+        Em andamento
       </ion-segment-button>
       <ion-segment-button value="Fechado">
-        <ion-label>Fechados</ion-label>
+        Fechados
       </ion-segment-button>
       <ion-segment-button value="Aberto">
-        <ion-label>Aberto</ion-label>
+        Aberto
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>

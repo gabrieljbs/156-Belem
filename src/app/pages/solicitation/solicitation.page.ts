@@ -3,6 +3,7 @@ import { SolicitationService } from 'src/app/services/solicitation.service';
 import { getAuth } from '@angular/fire/auth';
 import { SolicitationDetailsComponent } from 'src/app/components/modals/solicitation-details/solicitation-details.component';
 import { ModalController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-solicitation',
   templateUrl: './solicitation.page.html',
@@ -10,16 +11,17 @@ import { ModalController } from '@ionic/angular';
 })
 export class SolicitationPage implements OnInit {
   public interfaceList: any[] = [];
-
+  public uid = '';
   filter = 'Em andamento'
   constructor(
     private solicitation: SolicitationService,
-    private modalCtrl: ModalController
-
+    private modalCtrl: ModalController,
+    private authService: AuthService
   ) {}
 
   async ngOnInit() {
-    const w = await this.solicitation.read();
+    this.uid = await this.authService.getuid();
+    const w = await this.solicitation.read(this.uid);
     w.forEach((doc) => {
       this.interfaceList.push(doc.data());
     });
