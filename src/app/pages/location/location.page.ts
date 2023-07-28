@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import * as L from 'leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
-
 @Component({
   selector: 'app-location',
   templateUrl: './location.page.html',
@@ -14,16 +13,8 @@ export class LocationPage implements OnInit {
   public icon: any;
   public name: any;
   private state: any;
-  private result: any = {
-    x: '', //longitude
-    y: '', //latitude
-    label: '',
-    bounds: [
-      ['', ''],
-      ['', ''],
-    ],
-    raw: '',
-  };
+  private result: any = null;
+  private mc: any = null;
 
   constructor(
     private router: Router,
@@ -38,7 +29,7 @@ export class LocationPage implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    const map =  L.map('map').setView([-1.45502, -48.5024], 16);
+    const map = L.map('map').setView([-1.45502, -48.5024], 16);
     L.tileLayer(
       'https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png',
       {
@@ -47,42 +38,45 @@ export class LocationPage implements OnInit {
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }
     ).addTo(map);
-
-    const searchControl: any = GeoSearchControl(
+    const searchControl = GeoSearchControl(
       {
         provider: new OpenStreetMapProvider(),
         style: 'bar',
         searchLabel: 'Insira o endereço...',
         notFoundMessage: 'Desculpa, endereço não encontrado.',
       },
-      console.log(map.getCenter())
     );
 
     map.addControl(searchControl).getCenter();
 
     //map.locate();
 
-    const onLocationFound = (e: any) => {
-      const radius = e.accuracy;
-      this.location.lat = e.latlng.lat;
-      this.location.lon = e.latlng.lng;
-      L.marker(e.latlng)
-        .addTo(map)
-        .bindPopup('Você está a ' + radius + ' metros aproximadamente')
-        .openPopup();
-    };
-
-    map.on('locationfound', onLocationFound);
+    // actual location
+    // const onLocationFound = (e: any) => {
+    //   const radius = e.accuracy;
+    //   this.location.lat = e.latlng.lat;
+    //   this.location.lon = e.latlng.lng;
+    //   L.marker(e.latlng)
+    //     .addTo(map)
+    //     .bindPopup('Você está a ' + radius + ' metros aproximadamente')
+    //     .openPopup();
+    // };
+    // map.on('locationfound', onLocationFound);
 
     const searchEventHandler = (result: any) => {
       this.result = result.location;
     };
     // Funcionando
     map.on('geosearch/showlocation', searchEventHandler);
+
+    const markerOption = {
+      draggable: false,
+    };
+
   }
 
   ticket() {
-    if (!this.result) {
+    if (this.result) {
       this.router.navigate([`ticket`], {
         state: {
           icon: this.state.icon,
