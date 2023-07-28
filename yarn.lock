@@ -1902,7 +1902,7 @@
 
 "@googlemaps/js-api-loader@^1.14.3":
   version "1.16.2"
-  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.16.2.tgz#3fe748e21243f8e8322c677a5525c569ae9cdbe9"
+  resolved "https://registry.npmjs.org/@googlemaps/js-api-loader/-/js-api-loader-1.16.2.tgz"
   integrity sha512-psGw5u0QM6humao48Hn4lrChOM2/rA43ZCm3tKK9qQsEj1/VzqkCqnvGfEOshDbBQflydfaRovbKwZMF4AyqbA==
   dependencies:
     fast-deep-equal "^3.1.3"
@@ -2486,21 +2486,6 @@
     "@types/estree" "*"
     "@types/json-schema" "*"
 
-"@types/esri-leaflet-geocoder@^2.2.3":
-  version "2.2.3"
-  resolved "https://registry.npmjs.org/@types/esri-leaflet-geocoder/-/esri-leaflet-geocoder-2.2.3.tgz"
-  integrity sha512-SyJuRZlPARrPWwx7L5KrvKLNZcbyw4CuCzyj7e3kgo7MZFpFCkGpO7Po5J6kvZt+OdT138u3WpXRVnRNNrSeRQ==
-  dependencies:
-    "@types/esri-leaflet" "*"
-    "@types/leaflet" "*"
-
-"@types/esri-leaflet@*":
-  version "2.1.9"
-  resolved "https://registry.npmjs.org/@types/esri-leaflet/-/esri-leaflet-2.1.9.tgz"
-  integrity sha512-Z3GLyJTepEsEpo2FB3eRqSRxGw1Y2Vohpuu5Qp87tc3MGbXjhSUTRYldoaACZj6JQQJuOnyK9FLMdSziq5C1Ow==
-  dependencies:
-    "@types/leaflet" "*"
-
 "@types/estree@*", "@types/estree@^1.0.0":
   version "1.0.1"
   resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.1.tgz"
@@ -2565,7 +2550,7 @@
   resolved "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
-"@types/leaflet@*", "@types/leaflet@^1.9.3":
+"@types/leaflet@^1.9.3":
   version "1.9.3"
   resolved "https://registry.npmjs.org/@types/leaflet/-/leaflet-1.9.3.tgz"
   integrity sha512-Caa1lYOgKVqDkDZVWkto2Z5JtVo09spEaUt2S69LiugbBpoqQu92HYFMGUbYezZbnBkyOxMNPXHSgRrRY5UyIA==
@@ -6080,16 +6065,9 @@ launch-editor@^2.6.0:
     picocolors "^1.0.0"
     shell-quote "^1.7.3"
 
-leaflet-control-geocoder@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.npmjs.org/leaflet-control-geocoder/-/leaflet-control-geocoder-2.4.0.tgz"
-  integrity sha512-b2QlxuFd40uIDbnoUI3U9fzfnB4yKUYlmsXjquJ2d2YjoJqnyVYcIJeErAVv3kPvX3nI0gzvBq1XHMgSVFrGkQ==
-  optionalDependencies:
-    open-location-code "^1.0.0"
-
 leaflet-geosearch@^3.8.0:
   version "3.8.0"
-  resolved "https://registry.yarnpkg.com/leaflet-geosearch/-/leaflet-geosearch-3.8.0.tgz#c792a71cc3c960d9396b7c1ad9ab6a8ffdd033f3"
+  resolved "https://registry.npmjs.org/leaflet-geosearch/-/leaflet-geosearch-3.8.0.tgz"
   integrity sha512-YYFigq2JkqaZrgEjxWyvyQy4seh0Il9xPlG+IP2Z3+K7DrQ+bYc7qDizmxKbAn2jSNUCvokz75gXj7wXcFDB9A==
   optionalDependencies:
     "@googlemaps/js-api-loader" "^1.14.3"
@@ -6928,11 +6906,6 @@ onetime@^5.1.0, onetime@^5.1.2:
   integrity sha512-kbpaSSGJTWdAY5KPVeMOKXSrPtr8C8C7wodJbcsd51jRnmD+GZu8Y0VoU6Dm5Z4vWr0Ig/1NKuWRKf7j5aaYSg==
   dependencies:
     mimic-fn "^2.1.0"
-
-open-location-code@^1.0.0:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/open-location-code/-/open-location-code-1.0.3.tgz"
-  integrity sha512-DBm14BSn40Ee241n80zIFXIT6+y8Tb0I+jTdosLJ8Sidvr2qONvymwqymVbHV2nS+1gkDZ5eTNpnOIVV0Kn2fw==
 
 open@8.4.2, open@^8.0.0, open@^8.0.9, open@^8.4.0:
   version "8.4.2"
