@@ -18,7 +18,6 @@ export class TicketPage implements OnInit {
   public name: any;
   public icon: any;
 
-
   constructor(
     private loadingCtrl: LoadingController,
     private router: Router,
@@ -28,7 +27,7 @@ export class TicketPage implements OnInit {
   ) {}
   ngOnInit() {
     this.state = this.router.getCurrentNavigation()?.extras.state;
-    console.log(this.state);
+    console.log(this.state)
   }
 
   async showLoading() {
@@ -55,16 +54,15 @@ export class TicketPage implements OnInit {
 
     const imageRef = await this.storageService.setFiles(input);
 
-    await this.solicitation.create(
-      descricao,
-      this.state.lat,
-      this.state.lon,
-      this.state.icon,
-      this.state.name,
-      imageRef,
-      this.state.label
-
-    );
+    await this.solicitation.create({
+      descricao: descricao,
+      latitude: this.state.lat,
+      longitude: this.state.lon,
+      icon: this.state.icon,
+      name: this.state.name,
+      url:  imageRef,
+      label: this.state.label,
+    });
     this.loading.dismiss();
     this.router.navigate(['/home']);
   }

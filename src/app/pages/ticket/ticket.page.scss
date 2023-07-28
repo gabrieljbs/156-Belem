@@ -3,7 +3,7 @@ ion-content {
     height: 100vh;
     --background: #7301b1;
     .text {
-      margin-top: 50px;
+      margin-top: 1rem;
 
     }
 
@@ -13,6 +13,7 @@ ion-content {
       width: 80vw;
       margin: auto;
       margin-top: 1rem;
+      margin-bottom: 1rem;
 
       ion-label {
         text-align: center;
@@ -86,7 +87,7 @@ ion-content {
 
     .picture{
       overflow:auto;
-      width: 90vw;
+      width: 80vw;
       height: 25vh;
       background: #ccc;
       margin: auto;
@@ -103,6 +104,5 @@ ion-content {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     bottom: 0px;
-    position: absolute;
 
   }
