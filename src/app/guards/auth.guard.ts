@@ -14,13 +14,13 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return new Promise(async (resolve, reject) => {
-      const auth = getAuth();
-     if(auth.currentUser) {
-      resolve(false);
-      await this.router.navigate(['/login']);
-      return (await presentToast('Usuario não logado', 3000, 'bottom', 'danger')).present();
-     }
-     resolve(true);
+      const uid = this.authService.getuid();
+      if(!uid) {
+        console.log('Aqui')
+        return false;
+      }
+      console.log('Aqui')
+      return true;
     })
   }
 
