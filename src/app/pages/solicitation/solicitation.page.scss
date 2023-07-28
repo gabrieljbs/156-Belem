@@ -1,6 +1,19 @@
 ion-content {
   ion-toolbar {
-    --background: #fff;
+    --background: #7301b1;
+    ion-segment {
+      --background: #fff;
+      ion-segment-button {
+        --color: #000 !important;
+        --color-checked: #fff;
+        --background-activated: black !important;
+        --background-checked: #7301b1;
+        --indicator-color: transparent !important;
+
+      }
+
+
+    }
 
     ion-label {
       color: #000;
@@ -58,15 +71,18 @@ ion-list {
   padding-top: 0px;
   padding-bottom: 0px;
   --background: #fff;
+  display: flex;
+  justify-content: center;
   .card {
     margin-top: 5px;
     min-height: 20vh;
-    display: flex;
     color: black;
     flex-direction: column;
     padding: 20px;
     background: white !important;
-    align-items: center;
+    width: 290px;
+    height: 170px;
+    border-radius: 10px;
     .title {
       display: flex;
 
