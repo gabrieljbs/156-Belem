@@ -1,9 +1,9 @@
 
 ion-content {
-    overflow: hidden;
     width: 100vw;
     --background: #7301b1;
-
+    --padding-end: 5vw;
+    --padding-start: 5vw;
     ion-header {
       display: flex;
       justify-content: space-between;
@@ -23,7 +23,6 @@ ion-content {
     ion-searchbar {
       margin: auto;
       margin-top: 3rem;
-      width: 85vw;
       --border-radius: 10px;
       --background: #fff;
       color: black;
@@ -35,9 +34,9 @@ ion-content {
     ion-item {
       --background: #7301b1;
       --border-color: #fff;
-      width: 85vw;
       margin: auto;
       margin-top: 1rem;
+      margin-bottom: 1rem;
       ion-label {
         color: #fff;
         size: 16px;
@@ -47,28 +46,25 @@ ion-content {
     }
 
     swiper-container {
-      margin-top: 2rem;
-      margin-left: 3rem;
-      @media screen and (min-width: 1024px) {
-        margin-left: 5rem;
 
-       }
        ion-spinner{
         margin: auto;
-        width: 100px;
+        width: 270px;
         height: 100px;
         color: #fff;
-
        }
+
        ion-card{
-        padding:  0px 15px 0px 5px;
         --background: #fff;
+        margin-left: 0;
          ion-card-header{
           display: inline;
+
           ion-item{
             display: inline;
             --background: #fff;
             --border-color: #7301b1;
+
             ion-icon{
               color: #7301b1;
             }
@@ -86,69 +82,36 @@ ion-content {
           font-weight: bold;
           font-family: Arial, Helvetica, sans-serif;
          }
-
        }
 
       swiper-slide {
-        margin-right: 20px;
 
+        overflow: hidden;
         img {
           border-radius: 10px;
-          width: 70vw;
-          height: 15vh;
-          @media screen and (min-width: 1024px) {
-            width: 60vw;
-            height: 60vh;
-
-           }
+          width: 270px;
+          height: 150px;
         }
         .image-title {
           position: absolute;
           bottom: 4px;
           left: 0;
           background-color: rgba(255, 255, 255, 0.5);
-          width: 70vw;
+          width: 270px;
           padding: 10px;
           color: #7301b1;
           font-weight: bold;
           text-align: center;
           border-bottom-left-radius: 10px;
           border-bottom-right-radius: 10px;
-
-          @media screen and (min-width: 1024px) {
-            width: 60vw;
-           }
         }
-      }
-    }
-
-    ion-button {
-      width: 120px;
-      height: 120px;
-      --background: #fff;
-      --border-radius: 10px;
-      margin: 10px;
-
-      ion-icon {
-        width: 50px;
-        height: 50px;
-        color: #e3a44c;
-      }
-      ion-label {
-        color: #7301b1;
-        size: 12px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        padding: auto;
-        text-transform: none;
       }
     }
 
     .solicitation {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 50px;
+      justify-content: space-between;
+
       ion-spinner{
         margin: auto;
         width: 100px;
@@ -157,13 +120,13 @@ ion-content {
 
        }
 
-      .list {
+      .list{
         ion-button {
-          width: 130px;
-          height: 130px;
+          width: 140px;
+          height: 140px;
           --background: #fff;
           --border-radius: 10px;
-          margin: 10px;
+          margin: 1rem 1rem;
 
           ion-icon {
             width: 50px;
@@ -173,7 +136,7 @@ ion-content {
           ion-label {
             p {
               color: #7301b1;
-              font-size: 12px; /* Corrigir a propriedade size para font-size */
+              font-size: 16px;
               font-family: Arial, Helvetica, sans-serif;
             }
           }

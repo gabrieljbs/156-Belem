@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Map, latLng, marker, tileLayer } from 'leaflet';
-
+import { Control, Map, latLng, marker, tileLayer } from 'leaflet';
+import 'leaflet-control-geocoder';
 @Component({
   selector: 'app-location',
   templateUrl: './location.page.html',
@@ -28,27 +28,28 @@ export class LocationPage implements OnInit {
   ngAfterViewInit(): void {
 
     const map = new Map('map').setView([-1.45502, -48.5024], 13);
-    tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution:
-        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
+
     }).addTo(map);
 
-    map.locate({ setView: true, maxZoom: 16 });
+
+    map.locate();
 
     const onLocationFound = (e: any) => {
       const radius = e.accuracy;
-       this.location.lat = e.latlng.lat;
-       this.location.lon = e.latlng.lng;
+      this.location.lat = e.latlng.lat;
+      this.location.lon = e.latlng.lng;
       console.log(this.location.lat,this.location.lon)
 
       marker(e.latlng)
-        .addTo(map)
-        .bindPopup("Você está a " + radius + " metros aproximadamente")
-        .openPopup();
+      .addTo(map)
+      .bindPopup("Você está a " + radius + " metros aproximadamente")
+      .openPopup();
     }
 
     map.on('locationfound', onLocationFound);
+
+
   }
 
   ticket(){

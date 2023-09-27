@@ -26,8 +26,8 @@ export class StorageService {
       const file = files.item(i);
       if (file) {
         const storageRef = ref(this.storage, 'user/'+uid+'/idTicket/'+file.name);
-        await uploadBytesResumable(storageRef, file);
-
+        const result = await uploadBytesResumable(storageRef, file);
+        console.log(result);
       }
     }
   }

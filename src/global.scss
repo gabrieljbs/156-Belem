@@ -24,8 +24,9 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
-@import "~leaflet/dist/leaflet.css";
-@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+@import "https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css";
+@import "https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css";
 
 app-root{
   width: 100vw;

@@ -42,15 +42,16 @@
     <ion-label>Nova solicitação </ion-label>
   </ion-item>
 
-  <div class="solicitation">
-    <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
-    <div class="list">
-      <ion-button *ngFor="let item of interfaceCard" (click)="ticket(item.icon, item.name)">
-        <ion-label>
-          <ion-icon slot="icon-only" [name]="item.icon"></ion-icon>
-          <p>{{item.name}}</p>
-        </ion-label>
-      </ion-button>
-    </div>
+ <div class="solicitation">
+  <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+  <div class="list">
+    <ion-button *ngFor="let item of interfaceCard" (click)="ticket(item.icon, item.name)">
+      <ion-label>
+        <ion-icon slot="icon-only" [name]="item.icon"></ion-icon>
+        <p>{{item.name}}</p>
+      </ion-label>
+    </ion-button>
   </div>
+</div>
+
 </ion-content>
