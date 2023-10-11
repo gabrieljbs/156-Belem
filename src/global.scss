@@ -16,7 +16,7 @@
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
-@import '@ionic/angular/css/display.css';
+@import "@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "@ionic/angular/css/padding.css";
@@ -28,7 +28,9 @@
 @import "https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css";
 @import "https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css";
 
-app-root{
+@import "https://fonts.googleapis.com/css2?family=Roboto&display=swap";
+
+app-root {
   width: 100vw;
   height: 100vh;
 }
