@@ -45,6 +45,8 @@ export class LoginPage implements OnInit {
       this.error = 'Email é inválido';
     } else if (e === 'Firebase: Error (auth/wrong-password).') {
       this.error = 'Senha incorreta';
+    }else{
+      this.error = e
     }
 
     const toast = await this.toastController.create({
