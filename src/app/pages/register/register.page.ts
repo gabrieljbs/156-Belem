@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  public userForm: FormGroup
+  public userForm: FormGroup;
   private loading: any;
   public error: string = '';
   constructor(
@@ -21,46 +21,50 @@ export class RegisterPage implements OnInit {
     private toastController: ToastController
   ) {
     this.userForm = this.formBuilder.group({
-      full_name:'',
+      full_name: '',
       email: '',
       password: '',
-      confirmPassword:''
+      confirmPassword: '',
     });
   }
 
   ngOnInit() {}
 
   async register() {
-    try{
+    try {
       this.showLoading();
       await this.authService.register(this.userForm.value);
       this.loading.dismiss();
-      this.redirect('/login')
-    } catch(error: any){
-      console.log(error.message)
+      this.redirect('/login');
+    } catch (error: any) {
+      console.log(error.message);
       this.loading.dismiss();
       return await this.presentToast(error.message);
     }
   }
 
   async showLoading() {
-   this.loading = await this.loadingCtrl.create();
+    this.loading = await this.loadingCtrl.create();
     this.loading.present();
   }
 
-  redirect(path:string){
+  redirect(path: string) {
     this.router.navigate([path]);
   }
 
   async presentToast(e: string) {
-    /* if (e === 'Firebase: Error (auth/invalid-email).') {
-      this.error = 'Email é inválido';
-    } else if (e === 'Firebase: Error (auth/wrong-password).') {
-      this.error = 'Senha incorreta';
+    if (e === 'Firebase: Error (auth/invalid-email).') {
+      this.error = 'Email invalido';
+    } else if (e === 'Firebase: Error (auth/missing-password).') {
+      this.error = 'Insira uma senha';
+    } else if (e === 'Firebase: Error (auth/email-already-in-use).') {
+      this.error = 'Email em uso';
+    } else {
+      this.error = e;
     }
- */
+
     const toast = await this.toastController.create({
-      message: e,
+      message: this.error,
       duration: 7000,
       position: 'bottom',
       color: 'danger',
