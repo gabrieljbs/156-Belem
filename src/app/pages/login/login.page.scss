@@ -1,52 +1,47 @@
 ion-content {
-  .back {
+  --background: #7301b1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  ion-img {
+    width: 127px;
+    height: 75px;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  form {
+    margin: auto;
+    width: 90vw;
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    background-color: #7301b1;
+    background-color: #fff;
+    border-radius: 12px;
+    gap: 2rem;
 
-    img{
-      width: 127px;
-      height: 75px;
-      margin: auto;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+    h1 {
+      color: #7301b1;
+      font-family: "Roboto", sans-serif;
+      font-weight: 600;
+      text-align: center;
     }
-    form{
-      margin: auto;
-      width: 90vw;
-      padding: 2rem 1rem;
-      display: flex;
-      flex-direction: column;
-      background-color: #FFF;
-      border-radius:12px ;
-      gap:2rem;
 
-      h1{
-        color: #7301b1;
-        font-family: "Roboto",  sans-serif;
-        font-weight: 600;
-        text-align: center;
+    ion-input {
+      color: #808080;
+      border: 1px solid #808080;
+      border-radius: 12px;
+      font-family: "Roboto", sans-serif;
+      --padding-start: 10px;
+    }
 
-      }
-
-      ion-input{
-        color: #808080;
-        border: 1px solid #808080;
-        border-radius: 12px;
-        font-family: 'Roboto', sans-serif;
-        --padding-start:10px;
-      }
-
-      ion-button{
-        --background: #E3A44C;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 400;
-        --background-activated:none;
-
-      }
-
+    ion-button {
+      --background: #e3a44c;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      --background-activated: none;
     }
   }
 }
