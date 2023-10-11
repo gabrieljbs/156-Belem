@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
-import { presentToast } from 'src/app/shared/toast';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
