@@ -107,40 +107,4 @@ ion-content {
       }
     }
 
-    .solicitation {
-      display: flex;
-      justify-content: space-between;
-
-      ion-spinner{
-        margin: auto;
-        width: 100px;
-        height: 100px;
-        color: #fff;
-
-       }
-
-      .list{
-        ion-button {
-          width: 140px;
-          height: 140px;
-          --background: #fff;
-          --border-radius: 10px;
-          margin: 1rem 1rem;
-
-          ion-icon {
-            width: 50px;
-            height: 50px;
-            color: #e3a44c;
-          }
-          ion-label {
-            p {
-              color: #7301b1;
-              font-size: 16px;
-              font-family: Arial, Helvetica, sans-serif;
-            }
-          }
-        }
-      }
-    }
-
 }
