@@ -32,10 +32,14 @@ export class RegisterPage implements OnInit {
 
   async register() {
     try {
-      this.showLoading();
-      await this.authService.register(this.userForm.value);
-      this.loading.dismiss();
-      this.redirect('/login');
+      if (this.userForm.value.password === this.userForm.value.confirmPassword) {
+        this.showLoading();
+        await this.authService.register(this.userForm.value);
+        this.loading.dismiss();
+        this.redirect('/login');
+      }else if(this.userForm.value.password !== this.userForm.value.confirmPassword){
+        this.presentToast('Senhas não conferem');
+      }
     } catch (error: any) {
       console.log(error.message);
       this.loading.dismiss();
