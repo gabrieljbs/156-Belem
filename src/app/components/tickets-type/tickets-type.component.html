@@ -1,0 +1,11 @@
+<div class="content">
+  <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+  <div class="list" *ngFor="let item of results">
+    <ion-button (click)="ticket(item.icon, item.name)">
+      <ion-label>
+        <ion-icon slot="icon-only" [name]="item.icon"></ion-icon>
+        <p>{{item.name}}</p>
+      </ion-label>
+    </ion-button>
+  </div>
+</div>
