@@ -6,6 +6,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PagesPageModule } from '../pages.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { PagesPageModule } from '../pages.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    PagesPageModule
+    PagesPageModule,
+    ComponentsModule
 
   ],
   declarations: [HomePage,],
