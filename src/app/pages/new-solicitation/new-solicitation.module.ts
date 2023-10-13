@@ -6,6 +6,7 @@ import { NewSolicitationPageRoutingModule } from './new-solicitation-routing.mod
 import { NewSolicitationPage } from './new-solicitation.page';
 import { HomePageRoutingModule } from '../home/home-routing.module';
 import { PagesPageModule } from '../pages.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { PagesPageModule } from '../pages.module';
     IonicModule,
     NewSolicitationPageRoutingModule,
     HomePageRoutingModule,
-    PagesPageModule
+    PagesPageModule,
+    ComponentsModule
   ],
   declarations: [NewSolicitationPage]
 })
