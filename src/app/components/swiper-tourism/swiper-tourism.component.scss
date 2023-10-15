@@ -6,40 +6,8 @@ swiper-container {
    height: 100px;
    color: #fff;
   }
-
-  ion-card{
-   --background: #fff;
-   margin-left: 0;
-    ion-card-header{
-     display: inline;
-
-     ion-item{
-       display: inline;
-       --background: #fff;
-       --border-color: #7301b1;
-
-       ion-icon{
-         color: #7301b1;
-       }
-
-     }
-      ion-card-title{
-       color: #7301b1;
-       font-weight: bold;
-      }
-    }
-
-    p{
-     color: #7301b1;
-     font-size: large;
-     font-weight: bold;
-     font-family: Arial, Helvetica, sans-serif;
-    }
-  }
-
  swiper-slide {
-
-   overflow: hidden;
+  margin-left: 1rem;
    img {
      border-radius: 10px;
      width: 270px;

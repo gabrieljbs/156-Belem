@@ -21,10 +21,6 @@ export class SwiperTourismComponent implements OnInit {
   async ngOnInit() {
     try {
       this.isLoading = true;
-      const slids = await this.solicitation.read();
-      slids.forEach((doc) => {
-        this.interfaceS.push(doc.data());
-      });
 
       const info = await this.solicitation.info();
       info.forEach((doc) => {
