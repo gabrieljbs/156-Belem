@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { SolicitationService } from 'src/app/services/solicitation.service';
 
@@ -9,8 +9,8 @@ import { SolicitationService } from 'src/app/services/solicitation.service';
 })
 export class TicketsTypeComponent implements OnInit {
   public interfaceCard: any[] = [];
-  @Input() search:any;
-  public results:any [] = [];
+  @Input() search: any;
+  public results: any[] = [];
   public isLoading = false;
   constructor(
     private solicitation: SolicitationService,
@@ -24,12 +24,18 @@ export class TicketsTypeComponent implements OnInit {
       buttom.forEach((doc) => {
         this.interfaceCard.push(doc.data());
       });
-      this.results = [...this.interfaceCard];
+      this.results = this.interfaceCard;
       this.isLoading = false;
     } catch (error) {}
   }
-
   ticket(icon: string, name: string) {
     this.router.navigate([`location`], { state: { icon: icon, name: name } });
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    this.results = this.interfaceCard.filter((res: any) => {
+      return res.name
+        .toLowerCase()
+        .includes(changes['search'].currentValue.toLowerCase());
+    });
   }
 }
