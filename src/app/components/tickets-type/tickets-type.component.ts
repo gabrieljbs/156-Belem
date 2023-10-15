@@ -9,7 +9,8 @@ import { SolicitationService } from 'src/app/services/solicitation.service';
 })
 export class TicketsTypeComponent implements OnInit {
   public interfaceCard: any[] = [];
-  @Input() results:any [] = [];
+  @Input() search:any;
+  public results:any [] = [];
   public isLoading = false;
   constructor(
     private solicitation: SolicitationService,
