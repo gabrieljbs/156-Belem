@@ -10,34 +10,45 @@ import { ModalController } from '@ionic/angular';
 })
 export class SolicitationPage implements OnInit {
   public interfaceList: any[] = [];
-
-  filter = 'Aberto'
+  public interfaceListResult: any;
   constructor(
     private solicitation: SolicitationService,
     private modalCtrl: ModalController
-
   ) {}
 
   async ngOnInit() {
 
     const w = await this.solicitation.read();
     w.forEach((doc) => {
-      console.log(doc)
       this.interfaceList.push(doc.data());
-      console.log(this.interfaceList)
     });
 
 
+    this.interfaceListResult = this.interfaceList.filter((el: any) => {
+      return el.status === 'Aberto' || el.status === 'Em analise' || el.status === 'Em andamento';
+    });
   }
 
-  async openModal(data:any) {
+  async openModal(data: any) {
     const modal = await this.modalCtrl.create({
       component: SolicitationDetailsComponent,
       componentProps: {
-        data
-      }
+        data,
+      },
     });
     return await modal.present();
-
   }
+
+  eventClick(e: any) {
+    if (e.detail.value === 'Aberto') {
+      this.interfaceListResult = this.interfaceList.filter((el: any) => {
+        return el.status === 'Aberto' || el.status === 'Em analise' || el.status === 'Em andamento';
+      });
+    } else if (e.detail.value === 'Fechado') {
+      this.interfaceListResult = this.interfaceList.filter((el: any) => {
+        return el.status === 'Concluido' || el.status === 'Cancelado';
+      });
+    }
+  }
+
 }
