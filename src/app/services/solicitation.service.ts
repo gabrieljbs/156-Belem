@@ -13,7 +13,7 @@ export class SolicitationService {
     private firestore: Firestore
   ) { }
  private solocitationInfoTourism = collection(this.firestore,'turismo_info')
- private solicitationCollection = collection(this.firestore,'Solicitation');
+ private solicitationCollection = collection(this.firestore,'solicitation');
  private solicitationCard = collection(this.firestore,'card');
 
 
@@ -21,8 +21,8 @@ async read(){
   const auth = getAuth();
   const user = auth.currentUser;
   const uid = user?.uid
-
-  const q = query(this.solicitationCollection, where('userId','==',`TGbgy45lQcXdFOQVlI025sUQNG02`))
+  console.log(auth)
+  const q = query(this.solicitationCollection, where('userId','==',uid))
   return await getDocs(q);
 
 }
