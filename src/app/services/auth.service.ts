@@ -54,4 +54,12 @@ export class AuthService {
       sessionStorage.removeItem('userData');
     });
   }
+  //Pega uid
+  getuid() {
+    const data = sessionStorage.getItem('userData');
+    if (data) {
+      const uid = JSON.parse(data);
+      return uid;
+    }
+  }
 }

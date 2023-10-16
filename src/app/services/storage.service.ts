@@ -14,22 +14,25 @@ export class StorageService {
 
   constructor() {}
 
-  async setFiles(input: any) {
-    if (!input.files) return;
-    console.log(input)
+  async setFiles(input: any): Promise<string> {
+    if (!input.files) return '';
     const files: FileList = input.files;
     const auth = getAuth();
     const user = auth.currentUser;
-    const uid = user?.uid
+    const uid = user?.uid;
 
     for (let i = 0; i < files.length; i++) {
       const file = files.item(i);
       if (file) {
-        const storageRef = ref(this.storage, 'user/'+uid+'/idTicket/'+file.name);
-        const result = await uploadBytesResumable(storageRef, file);
-        console.log(result);
+        const storageRef = ref(this.storage, `user/${uid}/idTicket/${file.name}`);
+        await uploadBytesResumable(storageRef, file);
+
+
+        const downloadURL = await getDownloadURL(storageRef);
+        return downloadURL;
       }
     }
+    return '';
   }
 
 
