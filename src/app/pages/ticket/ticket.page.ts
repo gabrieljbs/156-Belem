@@ -4,6 +4,8 @@ import { LoadingController } from '@ionic/angular';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { SolicitationService } from 'src/app/services/solicitation.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { presentToast } from 'src/app/shared/toast';
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.page.html',
@@ -17,18 +19,19 @@ export class TicketPage implements OnInit {
   private state: any;
   public name: any;
   public icon: any;
-
-
+  private uid = '';
   constructor(
     private loadingCtrl: LoadingController,
     private router: Router,
     private route: ActivatedRoute,
     private solicitation: SolicitationService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private authService: AuthService
   ) {}
   ngOnInit() {
     this.state = this.router.getCurrentNavigation()?.extras.state;
-    console.log(this.state);
+    this.uid = this.authService.getuid();
+
   }
 
   async showLoading() {
@@ -52,16 +55,26 @@ export class TicketPage implements OnInit {
 
   async ticket(descricao: string, input: any) {
     this.showLoading();
-    await this.storageService.setFiles(input);
-    await this.solicitation.create(
-      descricao,
-      this.state.lat,
-      this.state.lon,
-      this.state.icon,
-      this.state.name
-    );
-    this.loading.dismiss();
-    this.router.navigate(['/home']);
+    try {
+      const imageRef = await this.storageService.setFiles(input);
+      await this.solicitation.create({
+        uid: this.uid,
+        descricao: descricao,
+        latitude: this.state.lat,
+        longitude: this.state.lon,
+        icon: this.state.icon,
+        name: this.state.name,
+        url: imageRef,
+        label: this.state.label,
+      });
+      this.loading.dismiss();
+      this.router.navigate(['/solicitation']);
+    } catch (err: any) {
+      this.loading.dismiss();
+      return (
+        await presentToast(err.message, 30000, 'bottom', 'danger')
+      ).present();
+    }
   }
 
   async handleFileChange(event: Event) {

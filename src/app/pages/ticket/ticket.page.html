@@ -1,34 +1,24 @@
 <app-header [headerText]="'Ticket'"></app-header>
 <ion-content [fullscreen]="true">
   <div class="text">
-    <ion-item>
+    <ion-item lines="none">
       <ion-label>
-        <p>Adicione até 04 documentos, sendo no</p>
-        <p>máximo 01 vídeo até 5 segundos</p>
+        <p>Adicione 01 Imagem</p>
       </ion-label>
     </ion-item>
   </div>
 
   <div class="icons">
-    <ion-label (click)="takePicture()">
-      <ion-icon name="camera"></ion-icon><br />
-      Foto
-    </ion-label>
-    <ion-label (click)="takePicture()">
-      <ion-icon name="videocam"></ion-icon><br />
-      Video
-    </ion-label>
-
     <label for="fileUpload">
+      <ion-icon name="folder"></ion-icon><br />
       <ion-label>
-        <ion-icon name="folder"></ion-icon><br />
         Arquivos
       </ion-label>
     </label>
     <input id="fileUpload" type="file" #upload (change)="handleFileChange($event)" />
   </div>
 
-  <div class="picture">
+  <div class="picture" *ngIf="imageSrc">
     <ion-label *ngIf="imageSrc">
       <img *ngIf="imageSrc.startsWith('data:image/')" [src]="imageSrc" alt="Preview da imagem" />
       <video *ngIf="imageSrc.startsWith('data:video/')" controls>
@@ -38,7 +28,7 @@
   </div>
 
   <div class="text">
-    <ion-item>
+    <ion-item lines="none">
       <ion-label>
         <p>Descreva as infomações complementares</p>
         <p>a sua solicitação:</p>
@@ -58,7 +48,7 @@
     [(ngModel)]="description"
   ></ion-textarea>
 
-  <ion-toggle [checked]="true" color="warning">Manter Sigilo?</ion-toggle>
+  <ion-toggle [checked]="true" color="warning" disabled="true">Manter Sigilo?</ion-toggle>
 <br>
 
 
