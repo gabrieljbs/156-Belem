@@ -17,18 +17,20 @@ import {
 export class AuthService {
   constructor(private firestore: Firestore) {}
   private auth = getAuth();
-  private userCollection = collection(this.firestore, 'User');
+  private userCollection = collection(this.firestore, 'user');
 
   //Cadastro do usuario
   async register(userData: any) {
     const newUser = await createUserWithEmailAndPassword(
       this.auth,
       userData.email,
-      userData.password
+      userData.password,
     );
     await setDoc(doc(this.userCollection, newUser.user.uid), {
       email: userData.email,
-      uid: newUser.user.uid
+      uid: newUser.user.uid,
+      full_name: userData.full_name
+
     });
     return newUser.user.uid;
   }
