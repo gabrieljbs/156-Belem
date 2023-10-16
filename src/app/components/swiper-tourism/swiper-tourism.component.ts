@@ -25,7 +25,6 @@ export class SwiperTourismComponent implements OnInit {
       const info = await this.solicitation.info();
       info.forEach((doc) => {
         this.interfaceTurismo.push(doc.data());
-        console.log(this.interfaceCard);
       });
 
       const buttom = await this.solicitation.card();

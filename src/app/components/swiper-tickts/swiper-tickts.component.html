@@ -12,7 +12,7 @@
         <p>Status: {{item.status}}</p>
         <p></p>
         <p>Aberto: {{item.abertura}}</p>
-        <p>Fechado: {{item.fechado}}</p>
+        <p *ngIf="item.atualizacao">Atualização: {{item.fechado}}</p>
       </ion-card-content>
     </ion-card>
   </swiper-slide>
