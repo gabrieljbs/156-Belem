@@ -27,8 +27,14 @@
 @import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
 @import "https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css";
 @import "https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css";
-
+@import "node_modules/leaflet-geosearch/dist/geosearch.css";
 @import "https://fonts.googleapis.com/css2?family=Roboto&display=swap";
+@import "https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css";
+@import "~leaflet/dist/leaflet.css";
+@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+@import "https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css";
+@import "https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css";
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap';
 
 app-root {
   width: 100vw;
@@ -42,4 +48,7 @@ ion-toast.danger {
 ion-toast.success {
   --background: #48ff00;
   --color: #fff;
+}
+.glass {
+  background: #fff !important;
 }
