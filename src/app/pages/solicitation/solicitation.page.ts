@@ -11,7 +11,7 @@ import { ModalController } from '@ionic/angular';
 export class SolicitationPage implements OnInit {
   public interfaceList: any[] = [];
 
-  filter = 'Em andamento'
+  filter = 'Aberto'
   constructor(
     private solicitation: SolicitationService,
     private modalCtrl: ModalController
@@ -19,10 +19,15 @@ export class SolicitationPage implements OnInit {
   ) {}
 
   async ngOnInit() {
+
     const w = await this.solicitation.read();
     w.forEach((doc) => {
+      console.log(doc)
       this.interfaceList.push(doc.data());
+      console.log(this.interfaceList)
     });
+
+
   }
 
   async openModal(data:any) {
