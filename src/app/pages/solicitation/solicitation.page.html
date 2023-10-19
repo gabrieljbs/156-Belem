@@ -1,0 +1,30 @@
+<app-header [headerText]="'Chamados'"></app-header>
+<ion-content [fullscreen]="true">
+
+    <ion-segment value="Aberto" (ionChange)="eventClick($event)">
+      <ion-segment-button value="Aberto">
+        <ion-label>Em andamento</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Fechado">
+        <ion-label>Fechados</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+  <ion-list
+    *ngFor="let item of interfaceListResult"
+    style="background: #7301b1"
+    (click)="openModal(item)"
+  >
+  <div class="card" >
+    <div class="title">
+      <h3>{{item.titulo}}</h3>
+      <ion-icon slot="icon-only" name="{{item.icon}}"></ion-icon>
+    </div>
+    <div class="description">
+      <label><b>Abertura: </b> <u>{{item.abertura}}</u> </label>
+      <label><b>Atualização: </b> <u>{{item.abertura}}</u></label>
+      <label><b>Status: </b> <u>{{item.status}}</u></label>
+    </div>
+  </div>
+  </ion-list>
+</ion-content>

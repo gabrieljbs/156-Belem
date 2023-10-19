@@ -1,0 +1,7 @@
+<swiper-container :slides-per-view="1.25">
+  <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+  <swiper-slide *ngFor="let item of interfaceTurismo" (click)="openModalTourism(item)">
+    <img src="{{item.url}}" alt="Foto"/>
+    <div class="image-title">{{item.titulo}}</div>
+  </swiper-slide>
+</swiper-container>

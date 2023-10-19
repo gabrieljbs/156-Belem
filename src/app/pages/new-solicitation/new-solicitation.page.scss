@@ -1,0 +1,16 @@
+ion-content {
+  --background: #7301b1;
+
+  ion-searchbar {
+    margin: auto;
+    margin-top: 3rem;
+    width: 85vw;
+    --border-radius: 10px;
+    --background: #fff;
+    color: black;
+  }
+  .sc-ion-searchbar-md-h {
+    --icon-color: #e3a44c;
+  }
+
+}

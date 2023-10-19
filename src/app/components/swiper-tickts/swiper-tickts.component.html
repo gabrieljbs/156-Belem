@@ -1,0 +1,19 @@
+<swiper-container :slides-per-view="1.25">
+  <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
+  <swiper-slide *ngFor="let item of interfaceS" (click)="openModalSolicitation(item)">
+    <ion-card>
+      <ion-card-header>
+        <ion-item>
+          <ion-card-title>{{item.titulo}} </ion-card-title>
+          <ion-icon slot="end" size="large" name="warning"></ion-icon>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Status: {{item.status}}</p>
+        <p></p>
+        <p>Aberto: {{item.abertura}}</p>
+        <p *ngIf="item.atualizacao">Atualização: {{item.fechado}}</p>
+      </ion-card-content>
+    </ion-card>
+  </swiper-slide>
+</swiper-container>

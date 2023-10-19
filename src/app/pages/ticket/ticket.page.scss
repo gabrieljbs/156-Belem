@@ -1,0 +1,103 @@
+ion-content {
+  width: 100vw;
+  height: 100vh;
+  --background: #7301b1;
+  .text {
+    margin-top: 50px;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 80vw;
+    margin: auto;
+    margin-top: 1rem;
+
+    ion-label {
+      text-align: center;
+      color: #e3a44c;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+    ion-icon {
+      width: 50px;
+      height: 50px;
+      color: #e3a44c;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+  }
+
+  h1 {
+    margin-top: 2rem;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+  }
+  ion-item {
+    --background: #fff;
+    --border-radius: 15px;
+    ion-label {
+      width: 80vw;
+
+      text-align: center;
+      p {
+        color: #000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+    }
+    margin: auto;
+    width: 80vw;
+
+  }
+
+  ion-textarea {
+    margin: auto;
+    background: #fff;
+    margin-top: 1rem;
+    width: 80vw;
+    height: 15vh;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: fill;
+    color: #000;
+
+    .textarea-bottom {
+      background: #fff;
+    }
+  }
+
+  ion-toggle {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-left: 10vw;
+    margin-top: 1rem;
+    size: 16px;
+  }
+
+  .picture {
+    overflow: auto;
+    width: 80vw;
+    height: 20vh;
+    background: #ccc;
+    margin: auto;
+  }
+}
+ion-button {
+  --background: #e3a44c;
+  width: 100vw;
+  height: 55px;
+  margin: auto;
+  color: #fff;
+  size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  bottom: 0px;
+  position: absolute;
+}

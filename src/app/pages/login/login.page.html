@@ -1,14 +1,24 @@
 <ion-content [fullscreen]="true">
-  <div class="back">
-    <img src="./assets/icon/logo-belem.png" alt="Logo">
 
-    <div class="form">
+    <ion-img src="./assets/icon/logo-belem.png" alt="Logo" />
+
+    <form [formGroup]="userForm">
       <h1>Login</h1>
-      <ion-input [(ngModel)]="user.email" label="Digite seu E-mail" label-placement="floating" fill="outline" placeholder="E-mail@exempler.com" type="E-mail"></ion-input>
-      <ion-input [(ngModel)]="user.password" label="Digite sua Senha" label-placement="floating" fill="outline" placeholder="******" type="password"></ion-input>
-      <ion-button expand="block" (click)="login(user)">Entrar</ion-button>
-      <ion-button expand="block">Esquecia minha senha</ion-button>
-      <ion-button expand="block" routerLink="/register">Novo Cadastar</ion-button>
-    </div>
-  </div>
+      <ion-input
+        formControlName="email"
+        placeholder="Digite seu E-mail"
+        type="email"
+      ></ion-input>
+
+      <ion-input
+        formControlName="password"
+        placeholder="Digite sua senha"
+        type="password"
+      ></ion-input>
+
+      <ion-button (click)='login()'>Entrar</ion-button>
+      <ion-button disabled="true">Esqueci minha senha</ion-button>
+      <ion-button (click)="redirect('register')">Novo cadastro</ion-button>
+    </form>
+
 </ion-content>

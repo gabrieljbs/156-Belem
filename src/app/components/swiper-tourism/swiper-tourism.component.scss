@@ -1,0 +1,30 @@
+swiper-container {
+
+  ion-spinner{
+   margin: auto;
+   width: 270px;
+   height: 100px;
+   color: #fff;
+  }
+ swiper-slide {
+  margin-left: 1rem;
+   img {
+     border-radius: 10px;
+     width: 270px;
+     height: 150px;
+   }
+   .image-title {
+     position: absolute;
+     bottom: 4px;
+     left: 0;
+     background-color: rgba(255, 255, 255, 0.5);
+     width: 270px;
+     padding: 10px;
+     color: #7301b1;
+     font-weight: bold;
+     text-align: center;
+     border-bottom-left-radius: 10px;
+     border-bottom-right-radius: 10px;
+   }
+ }
+}

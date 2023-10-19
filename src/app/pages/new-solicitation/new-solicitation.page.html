@@ -1,0 +1,7 @@
+<app-header [headerText]="''"></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar (ionInput)="handleInput($event)" placeholder="Buscar assunto"></ion-searchbar>
+    <app-tickets-type [search]="results"></app-tickets-type>
+
+</ion-content>
