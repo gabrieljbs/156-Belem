@@ -21,9 +21,9 @@
       <ion-icon slot="icon-only" name="{{item.icon}}"></ion-icon>
     </div>
     <div class="description">
-      <label><b>Abertura: </b> <u>{{item.abertura}}</u> </label>
-      <label><b>Atualização: </b> <u>{{item.abertura}}</u></label>
-      <label><b>Status: </b> <u>{{item.status}}</u></label>
+      <label><b>Abertura: </b> {{item.abertura.toDate()| date:'dd/MM/yyyy'}} </label>
+      <label><b>Atualização: </b> {{item.atualizacao.toDate()| date:'dd/MM/yyyy'}}</label>
+      <label><b>Status: </b> {{item.status}}</label>
     </div>
   </div>
   </ion-list>

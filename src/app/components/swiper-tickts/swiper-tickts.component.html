@@ -1,6 +1,6 @@
 <swiper-container :slides-per-view="1.25">
   <ion-spinner color="light" size="large" *ngIf="isLoading"></ion-spinner>
-  <swiper-slide *ngFor="let item of interfaceS" (click)="openModalSolicitation(item)">
+  <swiper-slide *ngFor="let item of interfaceS| sortBy:'desc':'descricao'" (click)="openModalSolicitation(item)">
     <ion-card>
       <ion-card-header>
         <ion-item>
@@ -11,8 +11,8 @@
       <ion-card-content>
         <p>Status: {{item.status}}</p>
         <p></p>
-        <p>Aberto: {{item.abertura}}</p>
-        <p *ngIf="item.atualizacao">Atualização: {{item.fechado}}</p>
+        <p>Aberto: {{item.abertura.toDate()|date:'dd/MM/yyyy'}}</p>
+        <p *ngIf="item.atualizacao">Atualização: {{item.atualizacao.toDate()|date:'dd/MM/yyyy'}}</p>
       </ion-card-content>
     </ion-card>
   </swiper-slide>

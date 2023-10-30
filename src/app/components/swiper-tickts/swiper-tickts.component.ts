@@ -24,13 +24,13 @@ export class SwiperTicktsComponent implements OnInit {
       const slids = await this.solicitation.read();
       slids.forEach((doc) => {
         this.interfaceS.push(doc.data());
-
       });
       this.isLoading = false;
     } catch (error) {
       this.isLoading = false;
 
     }
+    console.log(this.interfaceS)
   }
 
   async openModalSolicitation(data: any) {

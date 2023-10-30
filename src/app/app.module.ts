@@ -13,15 +13,13 @@ import { TicketPageModule } from './pages/ticket/ticket.module';
 import { SolicitationDetailsComponent } from './components/modals/solicitation-details/solicitation-details.component'
 import { InfoTourismComponent } from './components/modals/info-tourism/info-tourism.component'
 @NgModule({
-  declarations: [AppComponent, SolicitationDetailsComponent, InfoTourismComponent],
+  declarations: [AppComponent, SolicitationDetailsComponent, InfoTourismComponent,],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
-    provideStorage(() => getStorage()),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage()),
     AppRoutingModule,
   ],

@@ -14,7 +14,7 @@
     <hr />
     <ion-label>
       <h1>Abertura:</h1>
-      <p>{{ data.abertura }}</p>
+      <p>{{ data.abertura.toDate()|date:'dd/MM/yyyy' }}</p>
     </ion-label>
     <hr />
     <ion-label>
@@ -29,7 +29,7 @@
     <hr />
     <ion-label>
       <h1>Atualizção:</h1>
-      <p>{{ data.atualizacao }}</p>
+      <p>{{ data.atualizacao.toDate()|date:'dd/MM/yyyy' }}</p>
     </ion-label>
     <hr />
     <ion-label>
