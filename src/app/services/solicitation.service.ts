@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { getDocs, query, setDoc, where } from '@angular/fire/firestore';
+import { getDocs, query, setDoc, where,orderBy } from '@angular/fire/firestore';
 import { Firestore, collection, doc, deleteDoc } from '@angular/fire/firestore';
 import { getAuth } from '@angular/fire/auth';
-import { format, lastDayOfMonth } from 'date-fns';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -14,14 +13,15 @@ export class SolicitationService {
   private solocitationInfoTourism = collection(this.firestore, 'turismo_info');
   private solicitationCollection = collection(this.firestore, 'solicitation');
   private solicitationCard = collection(this.firestore, 'card');
-  private newDocRef = doc(this.solicitationCollection);
 
   async read() {
     this.uid = await this.authService.getuid();
+    console.log(this.uid)
     const q = query(
       this.solicitationCollection,
-      where('userId.res.uid', '==', this.uid.res.uid)
+      where('userId', '==', this.uid.res.uid),
     );
+    console.log( this.solicitationCollection)
     return await getDocs(q);
   }
 
@@ -45,15 +45,13 @@ export class SolicitationService {
     url,
     //label,
   }: any) {
-    const currentDate = format(new Date(), 'dd/MM/yyyy');
     const local = { lat: latitude, lon: longitude/* , label: label */ };
 
     await setDoc(doc(this.solicitationCollection), {
-      uid: this.newDocRef.id,
-      abertura: currentDate,
+      abertura: new Date(),
       descricao: descricao,
-      atualizacao: '--/--/----',
-      obesevacao:'',
+      atualizacao:new Date(),
+      observacao:'',
       icon: icon,
       local: local,
       status: 'Aberto',

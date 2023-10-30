@@ -19,7 +19,7 @@ export class TicketPage implements OnInit {
   private state: any;
   public name: any;
   public icon: any;
-  private uid = '';
+  private uid:any = null;
   constructor(
     private loadingCtrl: LoadingController,
     private router: Router,
@@ -58,7 +58,7 @@ export class TicketPage implements OnInit {
     try {
       const imageRef = await this.storageService.setFiles(input);
       await this.solicitation.create({
-        uid: this.uid,
+        uid: this.uid.res.uid,
         descricao: descricao,
         latitude: this.state.lat,
         longitude: this.state.lon,
