@@ -10,8 +10,8 @@ import { SolicitationDetailsComponent } from 'src/app/components/modals/solicita
 })
 export class SwiperTicktsComponent implements OnInit {
   public interfaceS: any[] = [];
+  public result: any;
   public isLoading = false;
-  public interfaceCard: any[] = [];
 
   constructor(
     private solicitation: SolicitationService,
@@ -28,9 +28,7 @@ export class SwiperTicktsComponent implements OnInit {
       this.isLoading = false;
     } catch (error) {
       this.isLoading = false;
-
     }
-    console.log(this.interfaceS)
   }
 
   async openModalSolicitation(data: any) {
