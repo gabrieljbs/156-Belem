@@ -23,7 +23,7 @@
     <div class="description">
       <label><b>Abertura: </b> {{item.abertura.toDate()| date:'dd/MM/yyyy'}} </label>
       <label><b>Atualização: </b> {{item.atualizacao.toDate()| date:'dd/MM/yyyy'}}</label>
-      <label><b>Status: </b> {{item.status}}</label>
+      <label><b>Status:</b> <label style="color:{{item.color}};"> {{item.status}}</label></label>
     </div>
   </div>
   </ion-list>

@@ -23,10 +23,24 @@ export class SolicitationPage implements OnInit {
       this.interfaceList.push(doc.data());
     });
 
+    this.interfaceList.map((res:any)=>{
+      if(res.status ==='Em analise' || res.status === 'Em andamento'){
+        Object.assign(res,{color:'#FFD700'})
+      }else if(res.status === 'Concluido'){
+        Object.assign(res,{color:'#008000'})
+      }else if(res.status === 'Aberto'){
+        Object.assign(res,{color:'#7301b1'})
+      }else{
+        Object.assign(res,{color:'#FF0000'})
+      }
+    })
+
 
     this.interfaceListResult = this.interfaceList.filter((el: any) => {
       return el.status === 'Aberto' || el.status === 'Em analise' || el.status === 'Em andamento';
     });
+
+
   }
 
   async openModal(data: any) {
@@ -42,10 +56,12 @@ export class SolicitationPage implements OnInit {
   eventClick(e: any) {
     if (e.detail.value === 'Aberto') {
       this.interfaceListResult = this.interfaceList.filter((el: any) => {
+
         return el.status === 'Aberto' || el.status === 'Em analise' || el.status === 'Em andamento';
       });
     } else if (e.detail.value === 'Fechado') {
       this.interfaceListResult = this.interfaceList.filter((el: any) => {
+
         return el.status === 'Concluido' || el.status === 'Cancelado';
       });
     }
